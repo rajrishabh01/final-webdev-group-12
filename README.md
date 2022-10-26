@@ -1,6 +1,9 @@
 # final-webdev-group-12
 Final Project for CS5610 Web Dev course of Group 12.
 
+### Group Member
+Wanting Zeng
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
