@@ -1,6 +1,9 @@
 # final-webdev-group-12
 Final Project for CS5610 Web Dev course of Group 12.
 
+Website Link - Whip Up<br>
+https://majestic-bombolone-253e36.netlify.app/
+
 ### Group Member
 Wanting Zeng<br>
 Rishabh Raj<br>
