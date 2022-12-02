@@ -2,9 +2,9 @@
 Final Project for CS5610 Web Dev course of Group 12.
 
 ### Group Member
-Wanting Zeng
-Rishabh Raj
-Vasu Agarwal
+Wanting Zeng<br>
+Rishabh Raj<br>
+Vasu Agarwal<br>
 Samrudh Kumaraswamy
 
 # Getting Started with Create React App
