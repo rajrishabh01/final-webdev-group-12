@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.wd-nav {
+  display: flex;
+  border-bottom: 5px green solid;
+  padding-bottom: 2px;
+}
+
+.wd-nav .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: green;
+  text-decoration: none;
+}
+
+
+.wd-nav .nav-pills a {
+  color: green;
+  text-decoration: none !important;
+
+}
+
+.wd-nav a:hover {
+  color:green; 
+  text-decoration:none; 
+  cursor:pointer;  
+}
+
+.wd-nav .wd-icon{
+  font-family: fantasy;
+  font-size: large;
+  font-weight: bold;
+  color:green ;
+  background-color: black;
+}
