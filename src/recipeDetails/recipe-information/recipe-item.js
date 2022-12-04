@@ -33,7 +33,7 @@ const RecipeInformation = (
     return(
         <div className="row">
             <div className="col-4">
-                <img src={recipe.image} width="100%" className="rounded-5"/>
+                <img src={recipe.image} width="100%" className="rounded-5" alt={recipe.image}/>
             </div>
             <div className="col-8">
                 <div className="row">

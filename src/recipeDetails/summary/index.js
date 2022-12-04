@@ -1,9 +1,6 @@
 import React from "react";
 import recipe from '../recipe.json'
 import RecipeSummary from "./summaryItem";
-import IngredientItem from "../ingredient-list/ingredient-item";
-
-const recipeSummary = recipe.instructions;
 
 const RecipeSummaryComponent = () => {
     return(
