@@ -1,0 +1,30 @@
+[
+  {
+    "id": 123,
+    "username": "Elsa",
+    "avatar": "https://variety.com/wp-content/uploads/2022/02/Screen-Shot-2022-05-09-at-10.04.13-AM.png?w=681&h=383&crop=1&resize=681%2C383",
+    "content": "A great summer meal. I bought grilled chicken breasts from the market’s pre-cooked section which made the meal prep even quicker!",
+    "likes": 298
+  },
+  {
+    "id": 234,
+    "username": "Mars",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tharsis_and_Valles_Marineris_-_Mars_Orbiter_Mission_%2830055660701%29.png/1200px-Tharsis_and_Valles_Marineris_-_Mars_Orbiter_Mission_%2830055660701%29.png",
+    "content": "Added beef mince and doubled sauce. Great dish.",
+    "likes": 312
+  },
+  {
+    "id": 345,
+    "username": "Claire",
+    "avatar": "https://images.alphacoders.com/100/1004079.png",
+    "content": "No edamame or brocolini-used broccoli, kale, and mushrooms. The sauce would work with almost any veg on hand - the tahini adds an amazing creaminess. So good!",
+    "likes": 12
+  },
+  {
+    "id": 567,
+    "username": "Jojo Lu",
+    "avatar": "https://i.pinimg.com/736x/25/39/d9/2539d9792bad9b624963b42c8b533447.jpg",
+    "content": "Added mushrooms (maybe just a handful, would maybe add more next time) and sweetened the sauce with maple syrup and some mirin as it was wayy too sour after the lime juice (maybe lime was too big), which seemed to help!\n\nUsed ramen noodles and 12oz was rather too much, so might scale the noods back in the future, which I think would lead to a saucier, more enjoyable dish.\n\nStill, so good, and easy to customize veggie-wise! Will make again!",
+    "likes": 103
+  }
+]
