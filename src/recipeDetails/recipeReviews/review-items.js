@@ -17,7 +17,7 @@ const ReviewItem = (
             <div className="list-group-item border border-0">
                 <div className="row">
                     <div className="col-1">
-                        <img src={reviews.avatar} className="rounded-circle" width="100%" height="70px"/>
+                        <img src={reviews.avatar} className="rounded-circle" width="100%" height="70px" alt={reviews.avatar}/>
                     </div>
                     <div className = "col-11">
                         <div>

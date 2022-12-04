@@ -2,7 +2,6 @@ import React from "react";
 import ingredientList from "./ingredient-list";
 import RecipeSummaryComponent from "./summary";
 import RecipeReviewsComponent from "./recipeReviews";
-import RecipeInformation from "./recipe-information/recipe-item";
 import RecipeComponent from "./recipe-information";
 
 
