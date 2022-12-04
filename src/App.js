@@ -1,18 +1,21 @@
 import './App.css';
-import HomeComponent from './Home';
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
-import ProfileComponent from './Profile';
+import Whipup from './whipup';
+import Navigation from './navigation';
+
+//configurestore
 
 function App() {
   return (
+    //provider
     <BrowserRouter>
-      <div className="container">
+      <div className="wd-container">
+        <Navigation/>
         <Routes>
           <Route index
-            element={<HomeComponent />} />
-          <Route path="/profile" element={<ProfileComponent />} />
-          <Route path="/*" element={<HomeComponent />} />
+            element={<Whipup />} />
+          <Route path="/*" element={<Whipup />} />
         </Routes>
 
       </div>
