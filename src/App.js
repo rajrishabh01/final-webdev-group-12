@@ -11,14 +11,27 @@ import ProfileComponent from './users/Profile/ProfileComponent';
 import ProtectedRoute from './users/protected-route/Protected-Route';
 import UsersComponent from './users/users/UsersComponent';
 import PublicProfileComponent from './users/public-profile/PublicProfileComponent';
+import CurrentUser from './users/current-user';
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from './users/user-reducer';
+import { Provider } from 'react-redux';
 
 //configurestore
+const store = configureStore({
+  reducer: {
+    users: userReducer
+  }
+})
+
+
 
 function App() {
   return (
     //provider
+    <Provider store={store}>
     <BrowserRouter>
       <div className="wd-container">
+      <CurrentUser>
         <Navigation />
         <Routes>
           <Route index
@@ -41,8 +54,10 @@ function App() {
           <Route path="/recipeDetails/:rid" element={<RecipeDetailsComponent />} />
           <Route path="/profile/:uid" element={<PublicProfileComponent />} />
         </Routes>
+        </CurrentUser>
     </div>
     </BrowserRouter >
+    </Provider>
   );
 }
 
