@@ -4,7 +4,7 @@ import { useLocation } from "react-router";
 
 const Navigation = () => {
     //const {currentUser} = useSelector((state) => state.users)
-    const currentUser = false;
+    const currentUser = true;
     const { pathname } = useLocation()
     const parts = pathname.split('/')
     console.log(parts)

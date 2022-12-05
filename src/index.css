@@ -15,18 +15,18 @@ code {
 
 .wd-nav {
   display: flex;
-  border-bottom: 5px green solid;
+  border-bottom: 5px limegreen solid;
   padding-bottom: 2px;
 }
 
 .wd-nav .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  background-color: green;
+  background-color: limegreen;
   text-decoration: none;
 }
 
 
 .wd-nav .nav-pills a {
-  color: green;
+  color: limegreen;
   text-decoration: none !important;
 
 }
@@ -41,6 +41,6 @@ code {
   font-family: fantasy;
   font-size: large;
   font-weight: bold;
-  color:green ;
+  color:lime ;
   background-color: black;
 }
