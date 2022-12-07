@@ -13,43 +13,16 @@ import {
 
 //create temp data for users
 
-const currentUser = {
-    "userName": "NASA",
-    "handle": "@nasa",
-    "image": "aladdin.png",
-};
-
-const templateUser = {
-    ...currentUser,
-    "topic": "Space",
-    "time": "2h",
-    "liked": true,
-    "replies": 0,
-    "retuits": 0,
-    "likes": 0,
-}
-
-const initialState = {
-    tuits: [],
-    loading: false
-}
-
 
 const usersReducer = createSlice({
     name: 'users',
-    initialState,
+    initialState: {
+        loading: false,
+        users: [],
+        currentUser: null,
+        error: null
+    },
     reducers: {
-        deleteUser(state, action) {
-            const index = state.findIndex(user => user._id === action.payload);
-            state.splice(index, 1);
-        },
-        createUser(state, action) {
-            state.unshift({
-                ...action.payload,
-                ...templateUser,
-                _id: (new Date()).getTime(),
-            })
-        }
     },
     //uncomment after integration
     extraReducers: {
@@ -61,6 +34,10 @@ const usersReducer = createSlice({
         },
         [profileThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
+        },
+        [profileThunk.rejected]: (state, action) => {
+            state.error = action.payload
+            state.currentUser = null
         },
         [registerThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
