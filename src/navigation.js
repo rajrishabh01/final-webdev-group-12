@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
-//import {useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 const Navigation = () => {
-    //const {currentUser} = useSelector((state) => state.users)
-    const currentUser = true;
+    const {currentUser} = useSelector((state) => state.users)
+    //const currentUser = true;
     const { pathname } = useLocation()
     const parts = pathname.split('/')
-    console.log(parts)
     return (
         <div className="wd-nav mt-2">
             <ul className="nav nav-pills col-8 justify-content-start">
