@@ -1,4 +1,5 @@
 import React from "react";
+import BeforeLogin from "./home-before-login";
 
 
 const HomeComponent = () => {
@@ -6,7 +7,7 @@ const HomeComponent = () => {
         <>
 
                 <h1>Home</h1>
-                
+                <BeforeLogin/>
             
         </>
     );
