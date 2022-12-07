@@ -34,7 +34,7 @@ const SearchBar = () => {
                 <div className="form-floating">
 
                     <input id="search-input" type="search" className="form-control border border-success" placeholder="search recipe"/>
-                    <label className="form-label form-floating" htmlFor="search-input" >
+                    <label className="form-label form-floating text-secondary" htmlFor="search-input" >
                         Search recipe by ingredients
                     </label>
                 </div>
