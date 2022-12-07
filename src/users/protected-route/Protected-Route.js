@@ -4,8 +4,9 @@ import {Navigate, useNavigate} from "react-router";
 
 const ProtectedRoute = ({children}) => {
     const navigate = useNavigate()
-    //const {currentUser} = useSelector((state) => state.users)
-    const currentUser = true;
+    const {currentUser} = useSelector((state) => state.users)
+    //const currentUser = true;
+    //console.log(currentUser.username);
     if (currentUser) {
         return (children)
     } else {

@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
-//import {useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 const Navigation = () => {
-    //const {currentUser} = useSelector((state) => state.users)
-    const currentUser = true;
+    const {currentUser} = useSelector((state) => state.users)
+    //const currentUser = true;
     const { pathname } = useLocation()
     const parts = pathname.split('/')
-    console.log(parts)
     return (
         <div className="wd-nav mt-2">
             <ul className="nav nav-pills col-8 justify-content-start">
@@ -20,14 +19,14 @@ const Navigation = () => {
                 <li className="nav-item ">
                     <Link to="/"
                         className={`nav-link ${parts[1] === '' ? 'active' : ''}`}>
-                            <i class="fa fa-home align-self-center me-1"></i>
+                            <i className="fa fa-home align-self-center me-1"></i>
                         Home
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/search"
                         className={`nav-link ${parts[1] === 'search' ? 'active' : ''}`}>
-                            <i class="fa fa-search align-self-center me-1"></i>
+                            <i className="fa fa-search align-self-center me-1"></i>
                         Search Recipes
                     </Link>
                 </li>
