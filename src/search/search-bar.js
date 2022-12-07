@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import ResultItem from "./search-resutlt"
+import ResultItem from "./search-result"
 
 const SearchBar = () => {
     let [responseData, setResponseData] = React.useState('')
