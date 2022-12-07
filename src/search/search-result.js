@@ -14,7 +14,7 @@ const ResultItem = (
         }
     }
 ) =>{
-    //let [recipe, setRecipe] = React.useState('')
+    let [recipe, setRecipe] = React.useState('')
     function findRecipeDetails(id) {
         const options = {
             method: 'GET',
@@ -26,7 +26,7 @@ const ResultItem = (
         };
 
         axios.request(options).then(function (response) {
-            //setRecipe(response.data)
+            setRecipe(response.data)
             console.log(response.data);
         }).catch(function (error) {
             console.error(error);
