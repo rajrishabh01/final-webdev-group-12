@@ -20,14 +20,14 @@ const Navigation = () => {
                 <li className="nav-item ">
                     <Link to="/"
                         className={`nav-link ${parts[1] === '' ? 'active' : ''}`}>
-                            <i class="fa fa-home align-self-center me-1"></i>
+                            <i className="fa fa-home align-self-center me-1"></i>
                         Home
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/search"
                         className={`nav-link ${parts[1] === 'search' ? 'active' : ''}`}>
-                            <i class="fa fa-search align-self-center me-1"></i>
+                            <i className="fa fa-search align-self-center me-1"></i>
                         Search Recipes
                     </Link>
                 </li>

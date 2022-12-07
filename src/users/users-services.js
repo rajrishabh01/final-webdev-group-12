@@ -2,8 +2,8 @@
 import axios from "axios";
 
 //Change api to handle ENV var
-const USER_API_URL = 'http://localhost:4000/users'
-const BASE_API_URL = 'http://localhost:4000'
+const USER_API_URL = 'http://localhost:4000/api/users'
+const BASE_API_URL = 'http://localhost:4000/api'
 
 const api = axios.create({withCredentials: true});
 
