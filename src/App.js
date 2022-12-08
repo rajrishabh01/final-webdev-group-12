@@ -15,11 +15,13 @@ import CurrentUser from './users/current-user';
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './users/user-reducer';
 import { Provider } from 'react-redux';
+import followsReducer from './follows/follows-reducer';
 
 //configurestore
 const store = configureStore({
   reducer: {
-    users: userReducer
+    users: userReducer,
+    follows: followsReducer
   }
 })
 

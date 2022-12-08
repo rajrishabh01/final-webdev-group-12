@@ -1,39 +1,46 @@
 /*eslint-disable*/
 import React from "react";
-import {useParams} from "react-router";
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
-import {findFollowersThunk, findFollowingThunk, followUserThunk} from "../../follows/follows-thunks";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { findFollowersThunk, findFollowingThunk, followUserThunk } from "../../follows/follows-thunks";
 import { findUserByIdThunk } from "../users-thunk";
 import { findReviewsByAuthorThunk } from "../../reviews/reviews-thunk";
 
-const PublicProfileComponent= () => {
-    const {uid} = useParams()
-    const {publicProfile} = useSelector((state) => state.users)
-    const {reviews} = useSelector((state) => state.reviews)
-    const {followers, following} = useSelector((state) => state.follows)
+const PublicProfileComponent = () => {
+    const { uid } = useParams()
+    const { publicProfile } = useSelector((state) => state.users)
+    //const {reviews} = useSelector((state) => state.reviews)
+    const { followers, following } = useSelector((state) => state.follows)
+    const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch()
     const handleFollowBtn = () => {
         dispatch(followUserThunk({
             followed: uid
         }))
     }
+
     useEffect(() => {
         dispatch(findUserByIdThunk(uid))
-        dispatch(findReviewsByAuthorThunk(uid))
+        //dispatch(findReviewsByAuthorThunk(uid))
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
     }, [uid])
-    return(
+    const alreadyFollowed = followers.find((follow) => {follow.follower.username == currentUser.username})
+    
+    return (
         <>
-            <button
-                onClick={handleFollowBtn}
-                className="btn btn-success float-end">
-                Follow
-            </button>
+            {
+                !alreadyFollowed &&
+                <button
+                    onClick={handleFollowBtn}
+                    className="btn btn-success float-end">
+                    Follow
+                </button>
+            }
             <h1>{publicProfile && publicProfile.username}</h1>
-            <ul>
+            {/* <ul>
                 {
                     reviews && reviews.map((review) =>
                     <li>
@@ -43,12 +50,12 @@ const PublicProfileComponent= () => {
                     </li>
                     )
                 }
-            </ul>
+            </ul> */}
             <h2>Following</h2>
             <div className="list-group">
                 {
                     following && following.map((follow) =>
-                        <Link to={`/profile/${follow.followed._id}`} className="list-group-item">
+                        <Link key={follow._id} to={`/profile/${follow.followed._id}`} className="list-group-item">
                             {follow.followed.username}
                         </Link>
                     )
@@ -58,7 +65,7 @@ const PublicProfileComponent= () => {
             <div className="list-group">
                 {
                     followers && followers.map((follow) =>
-                        <Link to={`/profile/${follow.follower._id}`} className="list-group-item">
+                        <Link key={follow._id} to={`/profile/${follow.follower._id}`} className="list-group-item">
                             {follow.follower.username}
                         </Link>
                     )
