@@ -1,6 +1,6 @@
 import axios from "axios";
-const FOLLOWS_API = 'http://localhost:4000/follows'
-const USERS_API = 'http://localhost:4000/users'
+const FOLLOWS_API = 'http://localhost:4000/api/follows'
+const USERS_API = 'http://localhost:4000/api/users'
 
 const api = axios.create({withCredentials: true});
 
