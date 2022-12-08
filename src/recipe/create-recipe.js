@@ -11,7 +11,7 @@ const RecipesComponent = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllRecipesThunk())
-    }, [])
+    })
 
     return(
         <>
