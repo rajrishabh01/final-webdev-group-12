@@ -1,4 +1,5 @@
 import React from "react";
+let imageUrl = "https://spoonacular.com/cdn/ingredients_100x100/"
 const IngredientItem = (
     {
         eachIngredient = {
@@ -15,6 +16,19 @@ const IngredientItem = (
         }
     }
 ) => {
+    let showImage;
+    //console.log(typeof(eachIngredient.image))
+    if(typeof eachIngredient.image === "string"){
+        if (eachIngredient.image.length<30) {
+            showImage = imageUrl + eachIngredient.image
+        }
+    }
+    else{
+        showImage = eachIngredient.image
+    }
+
+
+    //console.log(eachIngredient.image.length)
     return (
             <div className="row">
                 <div className="col-2">
@@ -23,7 +37,7 @@ const IngredientItem = (
                 <div className="col">
                     <li className = "list-group-item border border-0">
                     <span>
-                        <img src={eachIngredient.image} className = "" width= "15%" alt={eachIngredient.image}/> <span className='fw-bolder'>
+                        <img src={showImage} className = "" width= "15%" alt={showImage}/> <span className='fw-bolder'>
                         {eachIngredient.amount} {eachIngredient.unit} </span>
                         {eachIngredient.name}
                     </span>

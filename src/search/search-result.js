@@ -1,6 +1,4 @@
-
 import React from "react"
-import axios from "axios";
 
 const ResultItem = (
     {
@@ -14,26 +12,6 @@ const ResultItem = (
         }
     }
 ) =>{
-    //let [recipe, setRecipe] = React.useState('')
-    function findRecipeDetails(id) {
-        const options = {
-            method: 'GET',
-            url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + id + '/information',
-            headers: {
-                'X-RapidAPI-Key': '64849db56fmsh6cd884599048293p191134jsnd38a6b32761e',
-                'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-            }
-        };
-
-        axios.request(options).then(function (response) {
-            //setRecipe(response.data)
-            console.log(response.data);
-        }).catch(function (error) {
-            console.error(error);
-        });
-        
-    }
-
     return(
         <div>
             <div className="list-group-item m-3">
@@ -44,8 +22,10 @@ const ResultItem = (
                     <div className="col">
                         <div className = "row">
                             <h2 className="text-success fw-semibold">
-                                <a href = "/recipeDetails" className="text-decoration-none" onClick={(e) =>{
-                                    findRecipeDetails(result.id)
+                                <a className="text-decoration-none" onClick={(e) =>{
+                                    let recipeID = result.id
+                                    window.location.href="/recipeDetails/" + recipeID
+                                    //findRecipeDetails(result.id)
                                     // console.log(result.id);
                                 }}>{result.title} </a>
                             </h2>

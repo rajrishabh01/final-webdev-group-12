@@ -1,10 +1,9 @@
 import React from "react";
 import axios from "axios";
-import ResultItem from "./search-result"
+// import ResultItem from "./search-result";
 
 const SearchBar = () => {
-    let [responseData, setResponseData] = React.useState('')
-    // let [message, setMessage] = React.useState('')
+    //let [responseData, setResponseData] = React.useState('')
     const options = {
         method: 'GET',
         url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
@@ -41,13 +40,18 @@ const SearchBar = () => {
                 <button id="search-button" type="button" className="btn btn-primary"
                         onClick = {(e) => {
                             const searchInput = document.getElementById('search-input');
-                            const inputValue = searchInput.value;
+                            const inputValue = searchInput.value.trim();
                             options.params.ingredients = inputValue;
+
                             axios.request(options).then(function (response) {
                                 // console.log("response.data");
                                  console.log(response.data);
                                 // console.log(response.data[0]);
-                                setResponseData(response.data)
+                                //setResponseData(response.data)
+                                if (inputValue.length > 0 ) {
+                                    window.location.href="/result/" + inputValue
+
+                                }
                             }).catch(function (error) {
                                 // setMessage(error)
                                 console.error(error);
@@ -57,18 +61,6 @@ const SearchBar = () => {
                         }>
                     <i className="bi bi-search"></i>
                 </button>
-            </div>
-            <div className="row">
-                <ul className = "list-group ">
-                    {
-                        responseData.length === 0 ? '':responseData.map(
-                            (result,index) => <ResultItem key = {result.id}
-                                                          result = {result}/>
-                        )
-
-                    }
-
-                </ul>
             </div>
         </div>
 
