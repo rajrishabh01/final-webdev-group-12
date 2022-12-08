@@ -9,7 +9,7 @@ const RecipeSummary = (
 
     let array = recipe.instructions.replace(/: /g, ":\n").replace(/\. /g,".\n")
     return (
-        <div style={{whiteSpace:'pre-wrap'}}>
+        <div id="test" style={{whiteSpace:'pre-wrap'}}>
             <p className="lead fw-normal">
                 {array}
                 {/*{recipe.instructions}*/}
@@ -18,3 +18,4 @@ const RecipeSummary = (
     )
 };
 export default RecipeSummary;
+
