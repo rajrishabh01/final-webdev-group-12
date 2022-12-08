@@ -1,16 +1,16 @@
 import React from "react";
-import ingredientList from "./ingredient-list";
 import RecipeSummaryComponent from "./summary";
 import RecipeReviewsComponent from "./recipeReviews";
 import RecipeComponent from "./recipe-information";
+import IngredientList from "./ingredient-list";
 
 const style ={
     // 'border-radius': '50px',
     // 'background': '#573d3d',
     //  'box-shadow':  '20px 20px 60px #4a3434, -20px -20px 60px #644646'
-    'border-radius': '34px',
+    'borderRadius': '34px',
     'background': 'linear-gradient(315deg, #d0ffd0, #afe6af)',
-    'box-shadow':  '-30px -30px 59px #8eba8e, 30px 30px 59px #f6fff6'
+    'boxShadow':  '-30px -30px 59px #8eba8e, 30px 30px 59px #f6fff6'
 
 }
 
@@ -24,10 +24,10 @@ const RecipeDetailsComponent = () => {
                 <RecipeComponent/>
             </div><br/>
             <div className = "row m-4" >
-                {ingredientList}
+                <IngredientList/>
             </div><br/>
             <div className="row m-4">
-                {RecipeSummaryComponent}
+                <RecipeSummaryComponent/>
             </div><br/>
             <div className="row m-4">
                 <RecipeReviewsComponent/>

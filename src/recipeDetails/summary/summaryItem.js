@@ -6,8 +6,11 @@ const RecipeSummary = (
         }
     }
 ) =>{
-
-    let array = recipe.instructions.replace(/: /g, ":\n").replace(/\. /g,".\n")
+    console.log(recipe.instructions)
+    let array = "";
+    if(typeof recipe.instructions === "string"){
+        array = recipe.instructions.trim().replace(/: /g, ":\n").replace(/\. /g,".\n")
+    }
     return (
         <div id="test" style={{whiteSpace:'pre-wrap'}}>
             <p className="lead fw-normal">

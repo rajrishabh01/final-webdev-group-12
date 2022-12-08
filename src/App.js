@@ -15,6 +15,8 @@ import CurrentUser from './users/current-user';
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './users/user-reducer';
 import { Provider } from 'react-redux';
+//import ResultItem from "./search/search-result";
+import ResultListComponent from "./search/search-result-list";
 import followsReducer from './follows/follows-reducer';
 
 //configurestore
@@ -39,7 +41,7 @@ function App() {
           <Route index
             element={<HomeComponent />} />
           <Route path="/*" element={<HomeComponent />} />
-          <Route path="/recipeDetails" element={<RecipeDetailsComponent />} />
+          {/*<Route path="/recipeDetails" element={<RecipeDetailsComponent />} />*/}
           <Route path="/search" element={<SearchComponent />} />
           <Route path="/users" element={
             <ProtectedRoute>
@@ -55,6 +57,8 @@ function App() {
           } />
           <Route path="/recipeDetails/:rid" element={<RecipeDetailsComponent />} />
           <Route path="/profile/:uid" element={<PublicProfileComponent />} />
+          <Route path = "/result/*" element={<ResultListComponent/>}/>
+          <Route path="/recipeDetails/*" element={<RecipeDetailsComponent />} />
         </Routes>
         </CurrentUser>
     </div>
