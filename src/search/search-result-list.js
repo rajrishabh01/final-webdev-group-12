@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect} from "react";
 import ResultItem from "./search-result";
 import axios from "axios";

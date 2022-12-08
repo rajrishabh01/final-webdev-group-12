@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect, useState} from "react";
 import IngredientItem from "./ingredient-item";
 import axios from "axios";

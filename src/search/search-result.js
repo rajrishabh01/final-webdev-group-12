@@ -21,14 +21,14 @@ const ResultItem = (
                     </div>
                     <div className="col">
                         <div className = "row">
-                            <h2 className="text-success fw-semibold">
-                                <a className="text-decoration-none" onClick={(e) =>{
+                            <h1 className="text-success fw-semibold">
+                                <button className="btn btn-link btn-lg text-decoration-none text-lg-center" onClick={(e) =>{
                                     let recipeID = result.id
                                     window.location.href="/recipeDetails/" + recipeID
                                     //findRecipeDetails(result.id)
                                     // console.log(result.id);
-                                }}>{result.title} </a>
-                            </h2>
+                                }}>{result.title} </button>
+                            </h1>
                         </div>
                         <div className = "row">
                             <h6>

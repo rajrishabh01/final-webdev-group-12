@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect, useState} from "react";
 import RecipeInformation from "./recipe-item";
 import axios from "axios";

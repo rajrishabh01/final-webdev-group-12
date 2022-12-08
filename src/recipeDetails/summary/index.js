@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect, useState} from "react";
 //import recipe from '../recipe.json'
 import RecipeSummary from "./summaryItem";
