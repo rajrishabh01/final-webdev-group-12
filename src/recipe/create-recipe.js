@@ -4,10 +4,10 @@ import { findAllRecipesThunk, createRecipesThunk, deleteRecipeThunk } from "./re
 import { userLikesRecipeThunk } from "../likes/likes-thunks";
 
 
-const RecipesComponent = () => {
+const CreateRecipesComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {recipes} = useSelector((state) => state.recipes)
-    const [recipe, setReview] = useState({title: 'New Recipe'})
+    const [recipe, setRecipe] = useState({title: 'New Recipe'})
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllRecipesThunk())
@@ -32,7 +32,7 @@ const RecipesComponent = () => {
                     <input
                         className="form-control w-75"
                         onChange={(e) =>
-                            setReview({...recipe, title: e.target.value})}
+                            setRecipe({...recipe, title: e.target.value})}
                         value={recipe.title}/>
                 </li>
                 {
@@ -61,4 +61,4 @@ const RecipesComponent = () => {
     )
 }
 
-export default RecipesComponent;
+export default CreateRecipesComponent;
