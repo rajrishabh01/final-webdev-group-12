@@ -4,7 +4,7 @@ import { findAllRecipesThunk, createRecipesThunk, deleteRecipeThunk } from "./re
 import { userLikesRecipeThunk } from "../likes/likes-thunks";
 
 
-const RecipesComponent = () => {
+const CreateRecipesComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {recipes} = useSelector((state) => state.recipes)
     const [recipe, setReview] = useState({title: 'New Recipe'})
@@ -61,4 +61,4 @@ const RecipesComponent = () => {
     )
 }
 
-export default RecipesComponent;
+export default CreateRecipesComponent;
