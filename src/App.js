@@ -19,13 +19,17 @@ import { Provider } from 'react-redux';
 import ResultListComponent from "./search/search-result-list";
 import followsReducer from './follows/follows-reducer';
 import recipeReducer from './recipe/recipe-reducer';
+import rapidAPIReducer from "./rapidAPI/rapidAPI-reducer";
+import rapidAPIRecipeInformReducer from "./rapidAPI/rapidAPI-recipeInform-reducer";
 
 //configurestore
 const store = configureStore({
   reducer: {
     users: userReducer,
     follows: followsReducer,
-    recipes: recipeReducer
+    recipes: recipeReducer,
+    rapid: rapidAPIReducer,
+    rapidRecipeInfo: rapidAPIRecipeInformReducer
   }
 })
 

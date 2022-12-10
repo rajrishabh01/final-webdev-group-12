@@ -1,13 +1,16 @@
 /* eslint-disable */
 import {createSlice} from "@reduxjs/toolkit";
 //import {findRecipesByIngredients} from "./rapidAPI-service";
-import {findRecipesByIngredientsThunk} from "./rapidAPI-thunks";
+import {
+    findRecipeInformationByRecipeIDThunk,
+    findRecipesByIngredientsThunk
+} from "./rapidAPI-thunks";
 //import {findRecipeInformationByRecipeID} from "./rapidAPI-service";
 //import {findRecipeInformationByRecipeIDThunk} from "./rapidAPI-thunks";
 
 const initialState = {
     resultList:[],
-    recipe:[],
+    //recipe:[],
     loading:false
 }
 
@@ -18,7 +21,11 @@ const rapidAPIReducer = createSlice({
         [findRecipesByIngredientsThunk.fulfilled]:(state,action) => {
             console.log(action.payload)
             state.resultList = action.payload
-        }
+        },
+        // [findRecipeInformationByRecipeIDThunk.fulfilled]:(state,action) => {
+        //     console.log(action.payload)
+        //     state.recipe = action.payload
+        // }
     },
     reducers:{
         getRecipesList(state,action){

@@ -17,13 +17,15 @@ const options = {
 
 export const findRecipesByIngredients = async(term) =>{
     options.params.ingredients = term
-      await axios.request(options).then(function (response) {
-        return response.data;
-    }).catch(function (error) {
-        // setMessage(error)
-        console.error(error);
-        console.log(error.message)
-    });
+    const response = await axios.request(options)
+          //.then(function (response) {
+        //console.log(response.data)
+    return response.data;
+    // }).catch(function (error) {
+    //     // setMessage(error)
+    //     console.error(error);
+    //     console.log(error.message)
+    // });
 
     //return response.data
 }
@@ -39,11 +41,12 @@ const recipesOptions = {
 
 export const findRecipeInformationByRecipeID = async (recipeID) =>{
     recipesOptions.url = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' + recipeID + '/information'
-    const result = axios.request(options).then(function (response) {
+    const result = await axios.request(options)
+        //.then(function (response) {
         //console.log(response.data);
-    }).catch(function (error) {
-        console.error(error);
-    });
+    // }).catch(function (error) {
+    //     console.error(error);
+    // });
     return result.data;
 
 }

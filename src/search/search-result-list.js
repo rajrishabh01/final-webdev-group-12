@@ -1,51 +1,24 @@
 /* eslint-disable */
 import React, {useEffect} from "react";
 import ResultItem from "./search-result";
-import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {findRecipesByIngredientsThunk} from "../rapidAPI/rapidAPI-thunks";
 
 
 const ResultListComponent = () =>{
-    let [responseData, setResponseData] = React.useState([])
-    const options = {
-        method: 'GET',
-        url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
-        params: {
-            ingredients: 'apples,flour,sugar',
-            number: '10',
-            ignorePantry: 'true',
-            ranking: '1'
-        },
-        headers: {
-            'X-RapidAPI-Key': '64849db56fmsh6cd884599048293p191134jsnd38a6b32761e',
-            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-        }
-    };
+    const {resultList, loading} = useSelector((state) => state.rapid)
+    const dispatch = useDispatch()
+
+
     let url = window.location.href;
     let arr = url.split("/");
     let ingredients = arr[arr.length - 1];
-    options.params.ingredients = ingredients
-    useEffect(()=> {
-           getResult();
+    useEffect(()=>{
+        dispatch(findRecipesByIngredientsThunk(ingredients))
     },[])
-
-
-    //console.log(responseData)
-    const getResult = () =>{
-            axios.request(options).then(function (response) {
-                // console.log("response.data");
-                // console.log(response.data);
-                // console.log(response.data);
-
-                setResponseData(response.data)
-
-            }).catch(function (error) {
-                console.error(error);
-                console.log(error.message)
-            });
-
-
-    }
-    if(responseData.length>0){
+    // console.log("resultList")
+    // console.log(resultList)
+    if(resultList.length>0){
         return(
             <div>
                 <div className="row">
@@ -58,7 +31,7 @@ const ResultListComponent = () =>{
                 <div className = "m-5 row">
                     <ul className="list-group">
                         {
-                            responseData.map(
+                            resultList.map(
                                 (result,index) => <ResultItem key = {result.id}
                                                               result = {result}/>
                             )

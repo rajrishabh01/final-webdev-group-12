@@ -1,4 +1,8 @@
-import React from "react"
+/* eslint-disable */
+
+import React, {useEffect, useState} from "react"
+import {useDispatch, useSelector} from "react-redux";
+import {findRecipeInformationByRecipeIDThunk} from "../rapidAPI/rapidAPI-thunks";
 
 const ResultItem = (
     {
@@ -12,6 +16,12 @@ const ResultItem = (
         }
     }
 ) =>{
+    let [searchTerm, setSearchTerm] = useState('')
+    //const {recipe, loading} = useSelector((state)=>state.rapidRecipeInfo)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(findRecipeInformationByRecipeIDThunk(searchTerm))
+    },[])
     return(
         <div className=" bg-info">
             <div className="list-group-item m-3">
@@ -25,6 +35,8 @@ const ResultItem = (
                                 <button className="btn btn-link btn-lg text-decoration-none text-lg-center" onClick={(e) =>{
                                     let recipeID = result.id
                                     window.location.href="/recipeDetails/" + recipeID
+                                    setSearchTerm(recipeID)
+                                    dispatch(findRecipeInformationByRecipeIDThunk(searchTerm.trim()))
                                     //findRecipeDetails(result.id)
                                     // console.log(result.id);
                                 }}>{result.title} </button>

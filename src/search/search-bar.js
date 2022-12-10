@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import {findRecipesByIngredientsThunk} from "../rapidAPI/rapidAPI-thunks";
@@ -6,11 +7,14 @@ import {findRecipesByIngredientsThunk} from "../rapidAPI/rapidAPI-thunks";
 const SearchBar = () => {
     //let [responseData, setResponseData] = React.useState('')
     let [searchTerm,setSearchTerm] = useState('apples,flour,sugar')
+    const {resultList, loading} = useSelector((state)=>state.rapid)
+
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(findRecipesByIngredientsThunk(searchTerm))
     },[])
-
+    console.log("results")
+    console.log(resultList)
     return (
         <div className="row">
             <h3 className="text-center" >
