@@ -80,9 +80,9 @@ const ResultListComponent = () =>{
     else{
         return (
             <>
-                <h1>
-                    404
-                </h1>
+                <div className="col-8">
+                    Loading...
+                </div>
             </>
         )
     }
