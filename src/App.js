@@ -18,12 +18,14 @@ import { Provider } from 'react-redux';
 //import ResultItem from "./search/search-result";
 import ResultListComponent from "./search/search-result-list";
 import followsReducer from './follows/follows-reducer';
+import recipeReducer from './recipe/recipe-reducer';
 
 //configurestore
 const store = configureStore({
   reducer: {
     users: userReducer,
-    follows: followsReducer
+    follows: followsReducer,
+    recipes: recipeReducer
   }
 })
 

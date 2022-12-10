@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { logoutThunk } from "../users-thunk";
@@ -20,7 +21,7 @@ const ProfileComponent = () => {
     useEffect(() => {
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
-    })
+    },[])
     return(
         <>
             <h1>Profile</h1>

@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import { findAllRecipesThunk, createRecipesThunk, deleteRecipeThunk } from "./recipe-thunks";
@@ -8,10 +9,11 @@ const CreateRecipesComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {recipes} = useSelector((state) => state.recipes)
     const [recipe, setRecipe] = useState({title: 'New Recipe'})
+    const uid = currentUser._id
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllRecipesThunk())
-    })
+    },[])
 
     return(
         <>
@@ -46,7 +48,7 @@ const CreateRecipesComponent = () => {
 
                             <i onClick={() => {
                                 dispatch(userLikesRecipeThunk({
-                                    uid: 111, mid: recipe._id//RecipeID
+                                    uid, rid: recipe._id//RecipeID
                                 }))
                             }} className="float-end bi bi-hand-thumbs-up me-2"></i>
                             <i className="float-end bi bi-hand-thumbs-down me-2"></i>
