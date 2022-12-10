@@ -4,8 +4,6 @@ import ResultItem from "./search-result";
 import axios from "axios";
 
 
-
-
 const ResultListComponent = () =>{
     let [responseData, setResponseData] = React.useState([])
     const options = {
@@ -22,58 +20,56 @@ const ResultListComponent = () =>{
             'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
         }
     };
-
     let url = window.location.href;
     let arr = url.split("/");
-    let pageId = arr[arr.length - 1];
-    options.params.ingredients = pageId;
-
+    let ingredients = arr[arr.length - 1];
+    options.params.ingredients = ingredients
     useEffect(()=> {
-        getResult();
+           getResult();
     },[])
 
 
-
+    //console.log(responseData)
     const getResult = () =>{
             axios.request(options).then(function (response) {
-                console.log("response.data");
-                console.log(response.data);
-                // console.log(response.data[0]);
+                // console.log("response.data");
+                // console.log(response.data);
+                // console.log(response.data);
 
                 setResponseData(response.data)
-                console.log("responseData")
-
-                console.log(responseData)
 
             }).catch(function (error) {
-                // setMessage(error)
                 console.error(error);
                 console.log(error.message)
             });
 
 
-        console.log("responseData")
-
-        console.log(responseData)
-
     }
     if(responseData.length>0){
         return(
-            <div className = "row">
-                <ul className="list-group">
-                    {
+            <div>
+                <div className="row">
+                    <h1 className="m-4 text-lg-center font-monospace text-success">
+                        There are some related recipes for you
+                    </h1>
 
-                        responseData.map(
-                            (result,index) => <ResultItem key = {result.id}
-                                                          result = {result}/>
-                        )
-                    }
+                </div>
+
+                <div className = "m-5 row">
+                    <ul className="list-group">
+                        {
+                            responseData.map(
+                                (result,index) => <ResultItem key = {result.id}
+                                                              result = {result}/>
+                            )
+                        }
 
 
-                    <ResultItem/>
+                        <ResultItem/>
 
-                </ul>
+                    </ul>
 
+                </div>
             </div>
         )
     }

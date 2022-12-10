@@ -1,24 +1,15 @@
-import React from "react";
-import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect, useState} from "react";
+import {findRecipesByIngredientsThunk} from "../rapidAPI/rapidAPI-thunks";
 // import ResultItem from "./search-result";
 
 const SearchBar = () => {
     //let [responseData, setResponseData] = React.useState('')
-    const options = {
-        method: 'GET',
-        url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
-        params: {
-            ingredients: 'apples,flour,sugar',
-            number: '10',
-            ignorePantry: 'true',
-            ranking: '1'
-        },
-        headers: {
-            'X-RapidAPI-Key': '64849db56fmsh6cd884599048293p191134jsnd38a6b32761e',
-            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-        }
-    };
-
+    let [searchTerm,setSearchTerm] = useState('apples,flour,sugar')
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(findRecipesByIngredientsThunk(searchTerm))
+    },[])
 
     return (
         <div className="row">
@@ -32,31 +23,18 @@ const SearchBar = () => {
             <div className="input-group">
                 <div className="form-floating">
 
-                    <input id="search-input" type="search" className="form-control border border-success" placeholder="search recipe"/>
+                    <input id="search-input" type="search" className="form-control border border-success" placeholder="search recipe"
+                    onChange={(e) => {setSearchTerm(e.target.value)}} value ={searchTerm}/>
                     <label className="form-label form-floating text-secondary" htmlFor="search-input" >
                         Search recipe by ingredients
                     </label>
                 </div>
                 <button id="search-button" type="button" className="btn btn-primary"
                         onClick = {(e) => {
-                            const searchInput = document.getElementById('search-input');
-                            const inputValue = searchInput.value.trim();
-                            options.params.ingredients = inputValue;
-
-                            axios.request(options).then(function (response) {
-                                // console.log("response.data");
-                                 console.log(response.data);
-                                // console.log(response.data[0]);
-                                //setResponseData(response.data)
-                                if (inputValue.length > 0 ) {
-                                    window.location.href="/result/" + inputValue
-
-                                }
-                            }).catch(function (error) {
-                                // setMessage(error)
-                                console.error(error);
-                                console.log(error.message)
-                            });
+                            if(searchTerm.length > 0 ){
+                                window.location.href="/result/" + searchTerm
+                            }
+                            dispatch(findRecipesByIngredientsThunk(searchTerm.trim()))
                             }
                         }>
                     <i className="bi bi-search"></i>

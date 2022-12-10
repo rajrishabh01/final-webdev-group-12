@@ -13,7 +13,7 @@ const ResultItem = (
     }
 ) =>{
     return(
-        <div>
+        <div className=" bg-info">
             <div className="list-group-item m-3">
                 <div className="row">
                     <div className="col">
