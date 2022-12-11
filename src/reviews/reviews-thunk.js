@@ -7,7 +7,7 @@ export const createReviewThunk = createAsyncThunk(
 )
 export const findReviewsByRecipeThunk = createAsyncThunk(
     'findReviewsByRecipeThunk',
-    async (recipeID) => findReviewsByRecipe(recipeID)
+    async (rid) => findReviewsByRecipe(rid)
 
 )
 export const findReviewsByAuthorThunk = createAsyncThunk(

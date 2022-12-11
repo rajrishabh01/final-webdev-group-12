@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {createReviewThunk, findReviewsByAuthorThunk, findReviewsByRecipeThunk} from "./reviews-thunks";
+import {createReviewThunk, findReviewsByAuthorThunk, findReviewsByRecipeThunk} from "./reviews-thunk";
 
 const reviewsReducer = createSlice({
     name: 'reviews',

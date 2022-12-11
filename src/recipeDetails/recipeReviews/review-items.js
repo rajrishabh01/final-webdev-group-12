@@ -27,7 +27,7 @@ const ReviewItem = (
 
                         </div>
                         <div className="fw-bolder">
-                            {reviews.content}
+                            {reviews.review}
                         </div>
                         <br/>
                         <div>
