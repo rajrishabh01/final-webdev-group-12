@@ -22,6 +22,8 @@ import recipeReducer from './recipe/recipe-reducer';
 import LocalRecipeDetailsComponent from './details/LocalRecipeDetailsComponent';
 import likesReducer from './likes/likes-reducer';
 import reviewsReducer from './reviews/reviews-reducer';
+import rapidAPIReducer from "./rapidAPI/rapidAPI-reducer";
+import rapidAPIRecipeInformReducer from "./rapidAPI/rapidAPI-recipeInform-reducer";
 
 //configurestore
 const store = configureStore({
@@ -31,6 +33,8 @@ const store = configureStore({
     recipes: recipeReducer,
     likes: likesReducer,
     reviews: reviewsReducer
+    rapid: rapidAPIReducer,
+    rapidRecipeInfo: rapidAPIRecipeInformReducer
   }
 })
 
