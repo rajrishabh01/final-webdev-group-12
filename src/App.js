@@ -19,6 +19,9 @@ import { Provider } from 'react-redux';
 import ResultListComponent from "./search/search-result-list";
 import followsReducer from './follows/follows-reducer';
 import recipeReducer from './recipe/recipe-reducer';
+import LocalRecipeDetailsComponent from './details/LocalRecipeDetailsComponent';
+import likesReducer from './likes/likes-reducer';
+import reviewsReducer from './reviews/reviews-reducer';
 import rapidAPIReducer from "./rapidAPI/rapidAPI-reducer";
 import rapidAPIRecipeInformReducer from "./rapidAPI/rapidAPI-recipeInform-reducer";
 
@@ -28,6 +31,8 @@ const store = configureStore({
     users: userReducer,
     follows: followsReducer,
     recipes: recipeReducer,
+    likes: likesReducer,
+    reviews: reviewsReducer
     rapid: rapidAPIReducer,
     rapidRecipeInfo: rapidAPIRecipeInformReducer
   }
@@ -65,6 +70,7 @@ function App() {
           <Route path="/profile/:uid" element={<PublicProfileComponent />} />
           <Route path = "/result/*" element={<ResultListComponent/>}/>
           <Route path="/recipeDetails/*" element={<RecipeDetailsComponent />} />
+          <Route path="/details/:rid" element={<LocalRecipeDetailsComponent />} />
         </Routes>
         </CurrentUser>
     </div>

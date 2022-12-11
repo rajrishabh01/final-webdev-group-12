@@ -15,3 +15,5 @@ export const likesReducer = createSlice({
         }
     }
 })
+
+export default likesReducer.reducer

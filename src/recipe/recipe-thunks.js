@@ -17,7 +17,7 @@ export const deleteRecipeThunk = createAsyncThunk(
     (recipeID) => service.deleteRecipe(recipeID)
 )
 
-export const findRecipeById = createAsyncThunk(
+export const findRecipeByIdThunk = createAsyncThunk(
     'findRecipeById',
     (rid) => service.findRecipeById(rid)
 )

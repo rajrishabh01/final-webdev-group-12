@@ -1,21 +1,22 @@
 /*eslint-disable*/
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { findAllRecipesThunk, createRecipesThunk, deleteRecipeThunk } from "./recipe-thunks";
 import { userLikesRecipeThunk } from "../likes/likes-thunks";
+import { Link } from "react-router-dom";
 
 
 const CreateRecipesComponent = () => {
-    const {currentUser} = useSelector((state) => state.users)
-    const {recipes} = useSelector((state) => state.recipes)
-    const [recipe, setRecipe] = useState({title: 'New Recipe'})
+    const { currentUser } = useSelector((state) => state.users)
+    const { recipes } = useSelector((state) => state.recipes)
+    const [recipe, setRecipe] = useState({ title: 'New Recipe' })
     const uid = currentUser._id
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllRecipesThunk())
-    },[])
+    }, [])
 
-    return(
+    return (
         <>
             <h1>Recipes</h1>
             {
@@ -35,8 +36,8 @@ const CreateRecipesComponent = () => {
                     <input
                         className="form-control w-75"
                         onChange={(e) =>
-                            setRecipe({...recipe, title: e.target.value})}
-                        value={recipe.title}/>
+                            setRecipe({ ...recipe, title: e.target.value })}
+                        value={recipe.title} />
                 </li>
                 {
                     recipes.map((recipe) =>
@@ -54,8 +55,10 @@ const CreateRecipesComponent = () => {
                             }} className="float-end bi bi-hand-thumbs-up me-2"></i>
                             <i className="float-end bi bi-hand-thumbs-down me-2"></i>
 
+                            <Link key={recipe._id} to={`/details/${recipe._id}`} className="link-secondary">
+                                {recipe.title}
+                            </Link>
 
-                            {recipe.title}
                         </li>
                     )
                 }
