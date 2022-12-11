@@ -27,7 +27,8 @@ const CreateRecipesComponent = () => {
                     <button className="btn btn-success float-end" onClick={() => {
                         dispatch(createRecipesThunk(
                             {
-                                title: recipe.title
+                                title: recipe.title,
+                                author: currentUser._id
                             }
                         ))
                     }}>Create</button>
