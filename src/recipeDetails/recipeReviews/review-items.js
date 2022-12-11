@@ -1,17 +1,6 @@
 import React from "react";
 
-const ReviewItem = (
-    {
-        reviews = {
-            "id": 123,
-            "username": "Elsa",
-            "avatar": "https://variety.com/wp-content/uploads/2022/02/Screen-Shot-2022-05-09-at-10.04.13-AM.png?w=681&h=383&crop=1&resize=681%2C383",
-            "content": "A great summer meal. I bought grilled chicken breasts from the market’s pre-cooked section which made the meal prep even quicker!",
-            "likes": 298,
-
-        }
-    }
-) => {
+const ReviewItem = ({reviews}) => {
     return(
         <div>
             <div className="list-group-item border border-1">
@@ -22,7 +11,7 @@ const ReviewItem = (
                     <div className = "col-11">
                         <div>
                             <h6>
-                                {reviews.username}
+                                {reviews.author.username}
                             </h6>
 
                         </div>
@@ -33,14 +22,6 @@ const ReviewItem = (
                         <div>
                             {reviews.likes} likes
                         </div>
-                        <div>
-                            {/*TODO: likes++ reducer*/}
-                            <i className="bi bi-chat-square-heart" onClick={(e) =>{
-                                reviews.likes++
-                            }}></i>
-
-                        </div>
-
                     </div>
                 </div>
             </div>

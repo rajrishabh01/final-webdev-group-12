@@ -5,6 +5,7 @@ import { logoutThunk } from "../users-thunk";
 import {useNavigate} from "react-router";
 import {Link} from "react-router-dom";
 import {findFollowersThunk, findFollowingThunk} from "../../follows/follows-thunks";
+import { findReviewsByAuthorThunk } from "../../reviews/reviews-thunk";
 
 
 const ProfileComponent = () => {
@@ -12,6 +13,9 @@ const ProfileComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {followers, following} = useSelector((state) => state.follows)
     const uid = currentUser._id;
+    const {reviews} = useSelector((state) => state.reviews)
+
+
     const dispatch = useDispatch()
     const handleLogoutBtn = () => {
         dispatch(logoutThunk())
@@ -21,6 +25,7 @@ const ProfileComponent = () => {
     useEffect(() => {
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
+        dispatch(findReviewsByAuthorThunk(uid))
     },[])
     return(
         <>
@@ -29,6 +34,17 @@ const ProfileComponent = () => {
                 currentUser &&
                 <h2>Welcome user: {currentUser.username}</h2>
             }
+            { <ul>
+                {
+                    reviews && reviews.map((review) =>
+                    <li>
+                        <Link key={review._id} to={`/details/${review.recipeID}`}>
+                        {review.review} {review.recipeID}
+                        </Link>
+                    </li>
+                    )
+                }
+            </ul> }
             <h2>Following</h2>
             <div className="list-group">
                 {
