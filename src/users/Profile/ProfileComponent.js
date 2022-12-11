@@ -1,19 +1,19 @@
 /*eslint-disable*/
 import React, { useEffect } from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutThunk } from "../users-thunk";
-import {useNavigate} from "react-router";
-import {Link} from "react-router-dom";
-import {findFollowersThunk, findFollowingThunk} from "../../follows/follows-thunks";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+import { findFollowersThunk, findFollowingThunk } from "../../follows/follows-thunks";
 import { findReviewsByAuthorThunk } from "../../reviews/reviews-thunk";
 
 
 const ProfileComponent = () => {
     const navigate = useNavigate()
-    const {currentUser} = useSelector((state) => state.users)
-    const {followers, following} = useSelector((state) => state.follows)
+    const { currentUser } = useSelector((state) => state.users)
+    const { followers, following } = useSelector((state) => state.follows)
     const uid = currentUser._id;
-    const {reviews} = useSelector((state) => state.reviews)
+    const { reviews } = useSelector((state) => state.reviews)
 
 
     const dispatch = useDispatch()
@@ -26,25 +26,34 @@ const ProfileComponent = () => {
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
         dispatch(findReviewsByAuthorThunk(uid))
-    },[])
-    return(
+    }, [])
+    return (
         <>
             <h1>Profile</h1>
             {
                 currentUser &&
                 <h2>Welcome user: {currentUser.username}</h2>
             }
-            { <ul>
+            {<ul>
                 {
                     reviews && reviews.map((review) =>
-                    <li>
-                        <Link key={review._id} to={`/details/${review.recipeID}`}>
-                        {review.review} {review.recipeID}
-                        </Link>
-                    </li>
+                        <div>
+                            {
+                                !review.isApiCreated &&
+                                <Link to={`/details/${review.recipeID}`}>
+                                    {review.review} {review.recipeID}
+                                </Link>
+                            }
+                            {
+                                review.isApiCreated &&
+                                <Link to={`/recipeDetails/${review.recipeID}`}>
+                                    {review.review} {review.recipeID}
+                                </Link>
+                            }
+                        </div>
                     )
                 }
-            </ul> }
+            </ul>}
             <h2>Following</h2>
             <div className="list-group">
                 {

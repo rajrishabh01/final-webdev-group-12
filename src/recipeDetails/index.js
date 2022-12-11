@@ -3,6 +3,7 @@ import RecipeSummaryComponent from "./summary";
 import RecipeReviewsComponent from "./recipeReviews";
 import RecipeComponent from "./recipe-information";
 import IngredientList from "./ingredient-list";
+import { useSelector } from "react-redux";
 
 const style ={
     // 'border-radius': '50px',
@@ -15,6 +16,8 @@ const style ={
 }
 
 const RecipeDetailsComponent = () => {
+    const { currentUser } = useSelector((state) => state.users)
+    console.log(currentUser)
     return(
         <div className="m-lg-5 border border-secondary border-opacity-25" style={style}>
             <div className="row">
