@@ -2,6 +2,8 @@ import React from "react";
 
 const ReviewItem = ({reviews}) => {
     return(
+        <>
+        { reviews &&
         <div>
             <div className="list-group-item border border-1">
                 <div className="row">
@@ -19,13 +21,12 @@ const ReviewItem = ({reviews}) => {
                             {reviews.review}
                         </div>
                         <br/>
-                        <div>
-                            {reviews.likes} likes
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
-};
+    }
+    </>
+    );
+}
 export default ReviewItem;

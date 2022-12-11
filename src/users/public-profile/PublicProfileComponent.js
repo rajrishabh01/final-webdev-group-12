@@ -11,9 +11,9 @@ import { findReviewsByAuthorThunk } from "../../reviews/reviews-thunk";
 const PublicProfileComponent = () => {
     const { uid } = useParams()
     const { publicProfile } = useSelector((state) => state.users)
-    const {reviews} = useSelector((state) => state.reviews)
+    const { reviews } = useSelector((state) => state.reviews)
     const { followers, following } = useSelector((state) => state.follows)
-    const {currentUser} = useSelector((state) => state.users)
+    const { currentUser } = useSelector((state) => state.users)
     const dispatch = useDispatch()
     const handleFollowBtn = () => {
         dispatch(followUserThunk({
@@ -27,8 +27,8 @@ const PublicProfileComponent = () => {
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
     }, [uid])
-    const alreadyFollowed = followers.find((follow) => {follow.follower.username === currentUser.username})
-    
+    const alreadyFollowed = followers.find((follow) => { follow.follower.username === currentUser.username })
+
     return (
         <>
             {
@@ -40,17 +40,26 @@ const PublicProfileComponent = () => {
                 </button>
             }
             <h1>{publicProfile && publicProfile.username}</h1>
-            { <ul>
+            {<ul>
                 {
                     reviews && reviews.map((review) =>
-                    <li>
+                    <div>
+                    {
+                        !review.isApiCreated &&
                         <Link to={`/details/${review.recipeID}`}>
-                        {review.review} {review.recipeID}
+                            {review.review} {review.recipeID}
                         </Link>
-                    </li>
+                    }
+                    {
+                        review.isApiCreated &&
+                        <Link to={`/recipeDetails/${review.recipeID}`}>
+                            {review.review} {review.recipeID}
+                        </Link>
+                    }
+                </div>
                     )
                 }
-            </ul> }
+            </ul>}
             <h2>Following</h2>
             <div className="list-group">
                 {
