@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { findRecipeByIdThunk } from "../recipe/recipe-thunks";
 import RecipeInformation from "../recipeDetails/recipe-information/recipe-item";
-import { findReviewsByRecipeThunk,createReviewThunk } from "../reviews/reviews-thunk";
+import { findReviewsByRecipeThunk, createReviewThunk } from "../reviews/reviews-thunk";
 import ReviewItem from "../recipeDetails/recipeReviews/review-items";
 
 const LocalRecipeDetailsComponent = () => {
@@ -15,6 +15,7 @@ const LocalRecipeDetailsComponent = () => {
     const { reviews } = useSelector((state) => state.reviews)
     const { currentUser } = useSelector((state) => state.users)
 
+    console.log(localRecipe)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(findRecipeByIdThunk(rid))
@@ -24,39 +25,38 @@ const LocalRecipeDetailsComponent = () => {
     const handlePostReviewBtn = () => {
         dispatch(createReviewThunk({
             review,
-            recipeID:rid,
-            author:currentUser._id
+            recipeID: rid,
+            author: currentUser._id
         }))
     }
 
     return (
         <>
             <div className="row">
-
-                {localRecipe && <RecipeInformation recipe={localRecipe} />}
+                {localRecipe && <RecipeInformation recipe={localRecipe} author={localRecipe.author} />}
 
             </div>
 
             <div className="row">
-            {
-                currentUser &&
-                <div>
-                    <textarea
-                        onChange={(e) => setReview(e.target.value)}
-                        className="form-control"></textarea>
-                    <button onClick={handlePostReviewBtn}>Post Review</button>
-                </div>
-            }
+                {
+                    currentUser &&
+                    <div>
+                        <textarea
+                            onChange={(e) => setReview(e.target.value)}
+                            className="form-control"></textarea>
+                        <button onClick={handlePostReviewBtn}>Post Review</button>
+                    </div>
+                }
             </div>
             <div className="row">
 
-                {   reviews && 
+                {reviews &&
                     reviews.map((eachReview) =>
-                    <ReviewItem
-                            key = {eachReview.id}
-                            reviews={eachReview}/>
+                        <ReviewItem
+                            key={eachReview._id}
+                            reviews={eachReview} />
                     )
-                } 
+                }
             </div>
         </>
 

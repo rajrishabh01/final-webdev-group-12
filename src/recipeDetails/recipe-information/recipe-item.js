@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const RecipeInformation = ({ recipe }) => {
-    const author = recipe.author;
-
+const RecipeInformation = ({recipe, author}) => {
+    console.log(author)
+    
     return (
 
         <div className="row">
@@ -18,8 +18,8 @@ const RecipeInformation = ({ recipe }) => {
                                 <span>Source: {recipe.sourceName}</span></a>
                         </span>}
                         {author && <span>
-                            <Link to={`/profile/${author._id}`}>
-                                Author : {author.username}
+                            <Link to={`/profile/${recipe.author._id}`}>
+                                Author : {recipe.author.username}
                             </Link>
                         </span>}
                     </div>

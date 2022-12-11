@@ -32,7 +32,7 @@ const store = configureStore({
     follows: followsReducer,
     recipes: recipeReducer,
     likes: likesReducer,
-    reviews: reviewsReducer
+    reviews: reviewsReducer,
     rapid: rapidAPIReducer,
     rapidRecipeInfo: rapidAPIRecipeInformReducer
   }
