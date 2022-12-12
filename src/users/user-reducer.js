@@ -61,6 +61,7 @@ const usersReducer = createSlice({
                 ...state.users[userIndex],
                 ...payload
             }
+            state.currentUser = payload
         },
         [deleteUserThunk.fulfilled]: (state, {payload}) => {
             state.loading = false

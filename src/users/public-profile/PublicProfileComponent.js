@@ -8,6 +8,9 @@ import { findFollowersThunk, findFollowingThunk, followUserThunk } from "../../f
 import { findUserByIdThunk } from "../users-thunk";
 import { findReviewsByAuthorThunk } from "../../reviews/reviews-thunk";
 import { findRecipeByUserIdThunk } from "../../recipe/recipe-thunks";
+import regularPic from '../../pics/regular.png'
+import proPic from '../../pics/procreator.png'
+import { findRecipesLikedByUserThunk } from "../../likes/likes-thunks";
 
 const PublicProfileComponent = () => {
     const { uid } = useParams()
@@ -16,6 +19,9 @@ const PublicProfileComponent = () => {
     const { followers, following } = useSelector((state) => state.follows)
     const { currentUser } = useSelector((state) => state.users)
     const { recipes } = useSelector((state) => state.recipes)
+    const { likes } = useSelector((state) => state.likes)
+
+
     const dispatch = useDispatch()
     const handleFollowBtn = () => {
         dispatch(followUserThunk({
@@ -29,14 +35,15 @@ const PublicProfileComponent = () => {
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
         dispatch(findRecipeByUserIdThunk(uid))
-    }, [uid, following])
+        dispatch(findRecipesLikedByUserThunk(uid))
+    }, [uid, followers])
 
-    console.log(followers)
-    console.log(currentUser)
+    const userPic = publicProfile && publicProfile.type === 'REGULAR' ? regularPic : proPic;
+
     return (
         <>
             {
-                followers && currentUser && !followers.map((user) => user._id === currentUser._id) &&
+                followers && currentUser && !followers.find((user) => user._id !== currentUser._id) &&
                 <button
                     onClick={() => { handleFollowBtn() }}
                     className="btn btn-success float-end">
@@ -44,7 +51,23 @@ const PublicProfileComponent = () => {
                 </button>
             }
             <h1>{publicProfile && publicProfile.username}</h1>
-            <h2>Recipes By User</h2>
+            <div>
+                <img src={userPic} className="w-1" />
+            </div>
+            
+            <h2>Liked Recipes</h2>
+            <div className="list-group">
+                {
+                    likes && likes.map((like) =>
+                         like && like.recipe && like.recipe.title &&
+                         <Link key={like.recipe._id} to={`/details/${like.recipe._id}`} className="list-group-item">
+                             {like.recipe.title}
+                         </Link>
+                        
+                    )
+                }
+            </div>
+            <h2>Reviews By User</h2>
             <div className="list-group">
                 {<ul>
                     {
