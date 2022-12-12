@@ -9,6 +9,8 @@ import { findReviewsByAuthorThunk } from "../../reviews/reviews-thunk";
 import { findRecipeByUserIdThunk } from "../../recipe/recipe-thunks";
 import regularPic from '../../pics/regular.png'
 import proPic from '../../pics/procreator.png'
+import { findAllUsersThunk } from "../users-thunk";
+import { findRecipesLikedByUserThunk } from "../../likes/likes-thunks";
 
 const ProfileComponent = () => {
     const navigate = useNavigate()
@@ -17,7 +19,8 @@ const ProfileComponent = () => {
     const uid = currentUser._id;
     const { reviews } = useSelector((state) => state.reviews)
     const { recipes } = useSelector((state) => state.recipes)
-
+    const { likes } = useSelector((state) => state.likes)
+   
     const dispatch = useDispatch()
     const handleLogoutBtn = () => {
         dispatch(logoutThunk())
@@ -29,24 +32,33 @@ const ProfileComponent = () => {
         dispatch(findFollowingThunk(uid))
         dispatch(findReviewsByAuthorThunk(uid))
         dispatch(findRecipeByUserIdThunk(uid))
-    }, [])
+        dispatch(findAllUsersThunk())
+        dispatch(findRecipesLikedByUserThunk(uid))
+    }, [currentUser])
 
     const userPic = currentUser && currentUser.type === 'REGULAR' ? regularPic : proPic;
-    
+
     return (
         <>
             <h1>Profile</h1>
             {
                 currentUser &&
                 <div className="d-flex">
-                    
+
                     <div>
                         <img src={userPic} className="w-1" />
                     </div>
-                    <h2>Welcome user: {currentUser.username}</h2>
+                    <h2>Welcome user: {currentUser.username} </h2>
+                    <h2>Handle: {currentUser.handle} </h2>
                 </div>
 
             }
+            <div>
+                <Link to="../edit-profile">
+                    <button className="rounded-pill btn btn-outline-secondary float-end w-25 mt-2 ps-3 pe-3 me-2 fw-bold text-black">Edit profile</button>
+                </Link>
+            </div>
+            <h2>Reviews By User {reviews && reviews.length}</h2>
             {<ul>
                 {
                     reviews && reviews.map((review) =>
@@ -67,7 +79,19 @@ const ProfileComponent = () => {
                     )
                 }
             </ul>}
-            <h2>Recipes By User</h2>
+            <h2>Liked Recipes</h2>
+            <div className="list-group">
+                {
+                    likes && likes.map((like) =>
+                         like && like.recipe && like.recipe.title &&
+                         <Link key={like.recipe._id} to={`/details/${like.recipe._id}`} className="list-group-item">
+                             {like.recipe.title}
+                         </Link>
+                        
+                    )
+                }
+            </div>
+            <h2>Recipes By User {recipes && recipes.length}</h2>
             <div className="list-group">
                 {
                     recipes && recipes.map((recipe) =>
@@ -77,7 +101,8 @@ const ProfileComponent = () => {
                     )
                 }
             </div>
-            <h2>Following</h2>
+            <h2>Following {following && following.length}</h2>
+
             <div className="list-group">
                 {
                     following && following.map((follow) =>
@@ -87,7 +112,8 @@ const ProfileComponent = () => {
                     )
                 }
             </div>
-            <h2>Followers</h2>
+            <h2>Followers {followers && followers.length}</h2>
+
             <div className="list-group">
                 {
                     followers && followers.map((follow) =>
