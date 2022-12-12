@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 const ReviewItem = ({reviews}) => {
     return(
@@ -12,10 +14,9 @@ const ReviewItem = ({reviews}) => {
                     </div>
                     <div className = "col-11">
                         <div>
-                            <h6>
-                                {reviews.author.username}
-                            </h6>
-
+                        <Link key={reviews.author._id} to={`/profile/${reviews.author._id}`} className="list-group-item">
+                            {reviews.author.username}
+                        </Link>
                         </div>
                         <div className="fw-bolder">
                             {reviews.review}
