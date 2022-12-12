@@ -6,7 +6,9 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { findFollowersThunk, findFollowingThunk } from "../../follows/follows-thunks";
 import { findReviewsByAuthorThunk } from "../../reviews/reviews-thunk";
-
+import { findRecipeByUserIdThunk } from "../../recipe/recipe-thunks";
+import regularPic from '../../pics/regular.png'
+import proPic from '../../pics/procreator.png'
 
 const ProfileComponent = () => {
     const navigate = useNavigate()
@@ -14,7 +16,7 @@ const ProfileComponent = () => {
     const { followers, following } = useSelector((state) => state.follows)
     const uid = currentUser._id;
     const { reviews } = useSelector((state) => state.reviews)
-
+    const { recipes } = useSelector((state) => state.recipes)
 
     const dispatch = useDispatch()
     const handleLogoutBtn = () => {
@@ -26,13 +28,24 @@ const ProfileComponent = () => {
         dispatch(findFollowersThunk(uid))
         dispatch(findFollowingThunk(uid))
         dispatch(findReviewsByAuthorThunk(uid))
+        dispatch(findRecipeByUserIdThunk(uid))
     }, [])
+
+    const userPic = currentUser && currentUser.type === 'REGULAR' ? regularPic : proPic;
+    
     return (
         <>
             <h1>Profile</h1>
             {
                 currentUser &&
-                <h2>Welcome user: {currentUser.username}</h2>
+                <div className="d-flex">
+                    
+                    <div>
+                        <img src={userPic} className="w-1" />
+                    </div>
+                    <h2>Welcome user: {currentUser.username}</h2>
+                </div>
+
             }
             {<ul>
                 {
@@ -54,6 +67,16 @@ const ProfileComponent = () => {
                     )
                 }
             </ul>}
+            <h2>Recipes By User</h2>
+            <div className="list-group">
+                {
+                    recipes && recipes.map((recipe) =>
+                        <Link key={recipe._id} to={`/details/${recipe._id}`} className="list-group-item">
+                            {recipe.title}
+                        </Link>
+                    )
+                }
+            </div>
             <h2>Following</h2>
             <div className="list-group">
                 {
