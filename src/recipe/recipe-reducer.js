@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import { createRecipesThunk, findAllRecipesThunk, deleteRecipeThunk, findRecipeByIdThunk} from "./recipe-thunks";
+import { createRecipesThunk, findAllRecipesThunk, deleteRecipeThunk, findRecipeByIdThunk, findRecipeByUserIdThunk} from "./recipe-thunks";
 const initialState = {
     recipes: [],
     loading: true
@@ -23,6 +23,9 @@ const recipesReducer = createSlice({
         },
         [findRecipeByIdThunk.fulfilled]: (state, action) => {
             state.localRecipe = action.payload
+        },
+        [findRecipeByUserIdThunk.fulfilled]: (state, action) => {
+            state.recipes = action.payload
         }
     }
 })

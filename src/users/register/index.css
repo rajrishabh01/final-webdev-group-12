@@ -1,0 +1,56 @@
+
+.wd-container-reg {
+    background-color: beige;
+    max-width: 100%;
+    height:120vh;
+    /* background: linear-gradient(
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1)
+    ),
+    url(/public/pics/pexels-engin-akyurt-1437812.jpg); */
+    background: linear-gradient(
+        rgba(17, 243, 5, 0.954),
+        rgba(255, 255, 255, 0.1)
+    );
+    background-size: cover;
+    background-position: center;
+}
+
+.wd-registration {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 100px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    border-right: 1px solid limegreen;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1)
+    ),
+    url(/src/pics/pexels-engin-akyurt-1437812.jpg);
+    background-size: cover;
+    background-position: center;
+    height:120vh;
+
+}
+
+.wd-btn {
+    background-color: limegreen;
+    border: none;
+    color: white;
+    height: 3em;
+
+}
+
+.wd-reg-radios {
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    font-weight: 800;
+    color:rgba(107, 229, 13, 0.977)
+}
+
+.form-control {
+    color:limegreen
+}

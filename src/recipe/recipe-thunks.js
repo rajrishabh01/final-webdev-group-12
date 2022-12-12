@@ -21,3 +21,8 @@ export const findRecipeByIdThunk = createAsyncThunk(
     'findRecipeById',
     (rid) => service.findRecipeById(rid)
 )
+
+export const findRecipeByUserIdThunk = createAsyncThunk(
+    'findRecipeByUserId',
+    (uid) => service.findRecipesByUserId(uid)
+)
