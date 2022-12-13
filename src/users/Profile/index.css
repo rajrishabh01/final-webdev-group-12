@@ -1,0 +1,68 @@
+.wd-container-profile {
+    height:auto;
+    width:auto;
+    background: linear-gradient(
+        rgba(184, 231, 154, 0.9),
+        rgba(255, 255, 255, 0.1)
+    );
+}
+
+.wd-image {
+    display: flex;
+    flex-shrink: inherit;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.wd-user-row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.wd-pic-section {
+    background-color: whitesmoke;
+    border: 2px solid green;
+    border-radius: 5%;
+}
+
+.wd-name {
+    justify-content: center;
+    font-size: 36px;
+    color:limegreen
+}
+
+.wd-related {
+    background-color: none;
+    border-radius: 5%;
+}
+
+.wd-container-profile .list-group {
+    background-color: whitesmoke;
+    margin-top:1em;
+    margin-bottom:1em;
+    padding: 1em 1em 1em 1em;
+    border: 2px solid green;
+}
+
+.wd-container-profile .list-group h2 {
+    background-color: none;
+    padding: 0.2em 0.2em 0.2em 0.2em;
+    margin: 0em 0.2em 0.2em 0.7em;
+    color: limegreen;
+    border-bottom: 2px solid lime;
+}
+
+.wd-container-profile .list-group .list-group-item {
+    background-color: none;
+    border: none;
+}
+
+.wd-container-profile .list-group a {
+    background-color: whitesmoke;
+    margin-left: 1em;
+}
+
+.wd-container-profile .list-group a:hover {
+    color: white;
+    background-color: limegreen;
+}
