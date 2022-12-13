@@ -10,7 +10,7 @@ const CreateRecipesComponent = () => {
     const { currentUser } = useSelector((state) => state.users)
     const { recipes } = useSelector((state) => state.recipes)
     const [recipe, setRecipe] = useState({ title: 'New Recipe' })
-    const uid = currentUser._id
+    const uid = currentUser && currentUser._id
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllRecipesThunk())
