@@ -39,94 +39,115 @@ const PublicProfileComponent = () => {
     }, [uid, followers])
 
     const userPic = publicProfile && publicProfile.type === 'REGULAR' ? regularPic : proPic;
+    const userType = publicProfile && publicProfile.type === 'REGULAR' ? 'Casual Creator' : 'Pro Creator'
 
     return (
         <>
-            <div className="wd-container-profile">
-                <div className="col-4">
-                    <div className="row">
-                        <h1>Public Profile</h1>
+
+            <div className="wd-container-profile pt-2">
+                <div className="row wd-user-row mt-4">
+                    <div className="col-4 ms-2 wd-pic-section pb-2">
                         {
-                            followers && currentUser && !followers.find((user) => user._id !== currentUser._id) &&
-                            <button
-                                onClick={() => { handleFollowBtn() }}
-                                className="btn btn-success float-end">
-                                Follow
-                            </button>
+                            currentUser && publicProfile &&
+                            <div className="col-7 d-inline">
+                                <div className="d-flex wd-name-follow mt-3 fw-bolder">{publicProfile.firstName} {publicProfile.lastName}
+                                {
+                                    followers && currentUser && !followers.find((user) => user._id !== currentUser._id) &&
+                                    <button
+                                        onClick={() => { handleFollowBtn() }}
+                                        className="btn btn-success wd-follow">
+                                        Follow
+                                    </button>
+                                }
+                                </div>
+                                <div className="wd-image mt-2">
+                                    <img src={userPic} className="rounded-circle" />
+                                </div>
+                                <span className="d-flex justify-content-center fw-bold text-success mb-5"> {userType} </span>
+                                <div className="wd-userinfo mb-2 ms-2">
+                                    <div className="text-secondary">Username : <span className="text-success">{publicProfile.username}</span> </div>
+                                    <div className="text-secondary">Handle : <span className="text-success">{publicProfile.handle}</span> </div>
+                                    <div className="text-secondary">About me : <span className="text-success">{publicProfile.bio}</span> </div>
+
+                                </div>
+
+                                
+                            </div>
                         }
-                        <h1>{publicProfile && publicProfile.username}</h1>
-                        <div>
-                            <img src={userPic} className="w-1" />
+
+                    </div>
+                    <div className="col-6 ms-2 wd-related pb-4 ">
+                        <div className="list-group">
+                            <h2>Recipes By User </h2>
+
+                            {
+                                recipes && recipes.map((recipe) =>
+                                    <Link key={recipe._id} to={`/details/${recipe._id}`} className="list-group-item">
+                                        {recipe.title}
+                                    </Link>
+                                )
+                            }
                         </div>
+
+                        {<div className="list-group">
+                            <h2>Reviews </h2>
+                            {
+                                reviews && reviews.map((review) =>
+                                    <div>
+                                        {
+                                            !review.isApiCreated &&
+                                            <Link to={`/details/${review.recipeID}`} className="list-group-item">
+                                                "{review.review}"
+                                            </Link>
+                                        }
+                                        {
+                                            review.isApiCreated &&
+                                            <Link to={`/recipeDetails/${review.recipeID}`} className="list-group-item">
+                                                "{review.review}"
+                                            </Link>
+                                        }
+                                    </div>
+                                )
+                            }
+                        </div>}
+
+                        <div className="list-group">
+                            <h2>Liked Recipes</h2>
+                            {
+                                likes && likes.map((like) =>
+                                    like && like.recipe && like.recipe.title &&
+                                    <Link key={like.recipe._id} to={`/details/${like.recipe._id}`} className="list-group-item">
+                                        {like.recipe.title}
+                                    </Link>
+
+                                )
+                            }
+                        </div>
+
+
+                        <div className="list-group">
+                            <h2>Following {following && following.length}</h2>
+                            {
+                                following && following.map((follow) =>
+                                    <Link key={follow._id} to={`/profile/${follow.followed._id}`} className="list-group-item">
+                                        {follow.followed.firstName} {follow.followed.lastName} - <span className="text-secondary">@{follow.followed.username}</span>                                    </Link>
+                                )
+                            }
+                        </div>
+
+                        <div className="list-group">
+                            <h2>Followers {followers && followers.length}</h2>
+                            {
+                                followers && followers.map((follow) =>
+                                    <Link key={follow._id} to={`/profile/${follow.follower._id}`} className="list-group-item">
+                                        {follow.follower.firstName} {follow.follower.lastName} - <span className="text-secondary">@{follow.follower.username}</span>
+                                    </Link>
+                                )
+                            }
+                        </div>
+
                     </div>
                 </div>
-                <h2>Liked Recipes</h2>
-                <div className="list-group">
-                    {
-                        likes && likes.map((like) =>
-                            like && like.recipe && like.recipe.title &&
-                            <Link key={like.recipe._id} to={`/details/${like.recipe._id}`} className="list-group-item">
-                                {like.recipe.title}
-                            </Link>
-
-                        )
-                    }
-                </div>
-                <h2>Reviews By User</h2>
-                <div className="list-group">
-                    {<ul>
-                        {
-                            reviews && reviews.map((review) =>
-                                <div>
-                                    {
-                                        !review.isApiCreated &&
-                                        <Link to={`/details/${review.recipeID}`} className="list-group-item">
-                                            {review.review} {review.recipeID}
-                                        </Link>
-                                    }
-                                    {
-                                        review.isApiCreated &&
-                                        <Link to={`/recipeDetails/${review.recipeID}`} className="list-group-item">
-                                            {review.review} {review.recipeID}
-                                        </Link>
-                                    }
-                                </div>
-                            )
-                        }
-                    </ul>}
-                </div>
-                <h2>Recipes By User</h2>
-                <div className="list-group">
-                    {
-                        recipes && recipes.map((recipe) =>
-                            <Link key={recipe._id} to={`/details/${recipe._id}`} className="list-group-item">
-                                {recipe.title}
-                            </Link>
-                        )
-                    }
-                </div>
-
-                <h2>Following</h2>
-                <div className="list-group">
-                    {
-                        following && following.map((follow) =>
-                            <Link key={follow._id} to={`/profile/${follow.followed._id}`} className="list-group-item">
-                                {follow.followed.username}
-                            </Link>
-                        )
-                    }
-                </div>
-                <h2>Followers</h2>
-                <div className="list-group">
-                    {
-                        followers && followers.map((follow) =>
-                            <Link key={follow._id} to={`/profile/${follow.follower._id}`} className="list-group-item">
-                                {follow.follower.username}
-                            </Link>
-                        )
-                    }
-                </div>
-
             </div>
         </>
     )

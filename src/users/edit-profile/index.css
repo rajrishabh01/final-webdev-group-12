@@ -1,0 +1,20 @@
+.wd-container-editprofile {
+    background: linear-gradient(
+        rgba(184, 231, 154, 0.9),
+        rgba(255, 255, 255, 0.1)
+    );
+}
+
+.wd-container-editprofile .row {
+    display:flex;
+    justify-content: center;
+}
+
+
+.wd-edit-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: limegreen;
+}

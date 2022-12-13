@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FloatingLabel, FormGroup, FormControl } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { updateUserThunk } from "../users-thunk";
+import "./index.css"
 
 const EditProfileComponent = () => {
     const {currentUser} = useSelector(state => state.users);
@@ -112,18 +113,19 @@ const EditProfileComponent = () => {
     return (
         <>
         { currentUser && 
-        <div className="row">
-            <div className="col-10 col-lg-10 col-xl-12 border rounded px-0 py-2">
+        <div className="wd-container-editprofile">
+        <div className="row pt-3">
+            <div className="col-6 col-lg-8 col-xl-10 px-0 py-2">
                 <div className="row ps-2 pe-3">
-                    <button className="btn col-1"
+                    <button className="rounded-pill btn btn-danger ps-2 col-1"
                         onClick={() => routeChange()}>
                         <i className="bi bi-x-lg"></i>
                     </button>
-                    <div className="col-9 pt-2">
-                        <span className="fw-bold">Edit Profile</span>
+                    <div className="col-8 pt-2">
+                        <span className="fw-bold wd-edit-text">Edit Profile</span>
                     </div>
-                    <div className="col-2">
-                        <button className="rounded-pill float-end btn btn-dark mb-2 me-1 pe-2 ps-2 fw-bold"
+                    <div className="col-2 pt-2">
+                        <button className="rounded-pill float-end btn btn-success w-100 fw-bold"
                             onClick={(event) => {
                                 updateProfileHandler(event);
                                 routeChange();
@@ -132,7 +134,7 @@ const EditProfileComponent = () => {
                         </button>
                     </div>
                 </div>
-                <div className="row d-inline px-3">
+                <div className="row wd-form-edit d-inline">
                     <Form>
                         <FormGroup controlId="formGroupName" className="mt-3 mb-3">
                             <FloatingLabel id="formName" label="First Name">
@@ -194,6 +196,7 @@ const EditProfileComponent = () => {
                 </div>
                 </div>
             </div>
+        </div>
         </div>
         }
     </>

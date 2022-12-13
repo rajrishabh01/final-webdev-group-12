@@ -23,6 +23,8 @@
     background-color: whitesmoke;
     border: 2px solid green;
     border-radius: 5%;
+    width: auto;
+    height:80vh;
 }
 
 .wd-name {
@@ -65,4 +67,11 @@
 .wd-container-profile .list-group a:hover {
     color: white;
     background-color: limegreen;
+}
+
+.wd-name-follow{
+    justify-content: space-evenly;
+    font-size: 36px;
+    color:limegreen;
+    margin-bottom: 1em
 }
