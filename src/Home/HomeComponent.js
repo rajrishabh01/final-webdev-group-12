@@ -12,6 +12,10 @@ const HomeComponent = () => {
                 currentUser &&
                 <h2>Welcome {currentUser.firstName}!</h2>
             }
+            {
+                !currentUser &&
+                <h2>Welcome!</h2>
+            }
             <CreateRecipesComponent/>
         </div>
     );

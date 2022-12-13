@@ -17,7 +17,7 @@ const CreateRecipesComponent = () => {
     }, [])
 
     return (
-        <div className="mt-4">
+        <div className="pt-1">
             {/*{currentUser &&*/}
             {/* <li className="list-group-item">*/}
             {/*     <button className="btn btn-success float-end" onClick={() => {*/}

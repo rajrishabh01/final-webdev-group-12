@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {createRecipesThunk} from "../recipe/recipe-thunks";
 import './index.css';
+import {Link} from "react-router-dom";
 
 const CreateNewRecipeComponent = () => {
     const {currentUser} = useSelector((state) => state.users);
@@ -125,11 +126,15 @@ const CreateNewRecipeComponent = () => {
             />
 
 
-            <button
-                className="rounded-pill btn btn-success mt-2 ps-3 pe-3 fw-bold"
-                onClick={createRecipeClickHandler}>
-                Create Recipe
-            </button>
+            <Link to={`/home`}
+                  className="link-success text-decoration-none">
+                <button
+                    className="rounded-pill btn btn-success mt-2 ps-3 pe-3 fw-bold"
+                    onClick={createRecipeClickHandler}>
+                    Create Recipe
+                </button>
+            </Link>
+
         </div>
     )
 }
