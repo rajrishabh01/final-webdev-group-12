@@ -5,10 +5,6 @@ import React from "react";
 const BeforeLogin = () => {
     return(
         <>
-            <h6>
-                before login home page
-            </h6>
-
             <div className="row">
                 <div className = "col-lg-6">
                     <br/>
