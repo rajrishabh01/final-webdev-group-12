@@ -77,7 +77,8 @@ function App() {
           <Route path="/profile/:uid" element={<PublicProfileComponent />} />
           <Route path = "/result/*" element={<ResultListComponent/>}/>
           <Route path="/recipeDetails/*" element={<RecipeDetailsComponent />} />
-          <Route path="/details/:rid" element={<LocalRecipeDetailsComponent />} />
+          <Route path="/details/:rid" element={<RecipeDetailsComponent />} />
+          {/*<Route path="/details/:rid" element={<LocalRecipeDetailsComponent />} />*/}
           <Route path="/edit-profile" element={<EditProfileComponent />} />
         </Routes>
         </CurrentUser>
