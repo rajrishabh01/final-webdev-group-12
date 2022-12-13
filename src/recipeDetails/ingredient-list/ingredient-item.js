@@ -35,7 +35,7 @@ const IngredientItem = (
 
                 </div>
                 <div className="col">
-                    <li className = "list-group-item border border-0">
+                    <li className = "list-group-item border border-0 bg-transparent">
                     <span>
                         <img src={showImage} className = "" width= "15%" alt={showImage}/> <span className='fw-bolder'>
                         {eachIngredient.amount} {eachIngredient.unit} </span>

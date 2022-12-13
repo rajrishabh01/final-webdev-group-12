@@ -8,7 +8,7 @@ const RecipeInformation = ({recipe, author}) => {
 
         <div className="row">
             <div className="col-4">
-                <img src={recipe.image} width="100%" className="rounded-5" alt={recipe.image} />
+                <img src={recipe.image} width="100%" className="rounded-5" alt="yum yum..." />
             </div>
             <div className="col-8">
                 <div className="row">

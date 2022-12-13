@@ -37,7 +37,7 @@ const RecipeComponent = () =>{
     // console.log(recipe)
     return(
         <div className="row">
-            <h4>Information</h4>
+            <h3 className="text-success">Information</h3>
             <RecipeInformation recipe={chosenRecipe}/>
         </div>
     )

@@ -5,7 +5,7 @@ const options = {
     url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
     params: {
         ingredients: 'apples,flour,sugar',
-        number: '10',
+        number: '12',
         ignorePantry: 'true',
         ranking: '1'
     },
