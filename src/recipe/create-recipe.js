@@ -24,21 +24,23 @@ const CreateRecipesComponent = () => {
                 <h2>Welcome {currentUser.username} </h2>
             }
             <ul className="list-group">
-                <li className="list-group-item">
-                    <button className="btn btn-success float-end" onClick={() => {
-                        dispatch(createRecipesThunk(
-                            {
-                                title: recipe.title,
-                                author: currentUser._id
-                            }
-                        ))
-                    }}>Create</button>
-                    <input
-                        className="form-control w-75"
-                        onChange={(e) =>
-                            setRecipe({ ...recipe, title: e.target.value })}
-                        value={recipe.title} />
-                </li>
+                {currentUser &&
+                    <li className="list-group-item">
+                        <button className="btn btn-success float-end" onClick={() => {
+                            dispatch(createRecipesThunk(
+                                {
+                                    title: recipe.title,
+                                    author: currentUser._id
+                                }
+                            ))
+                        }}>Create</button>
+                        <input
+                            className="form-control w-75"
+                            onChange={(e) =>
+                                setRecipe({ ...recipe, title: e.target.value })}
+                            value={recipe.title} />
+                    </li>
+                }
                 {
                     recipes.map((recipe) =>
                         <li className="list-group-item"
