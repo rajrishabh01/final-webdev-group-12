@@ -31,6 +31,12 @@ const Navigation = () => {
                     </Link>
                 </li>
                 <li className={`nav-item ${!currentUser ? 'd-none' : ''}`}>
+                    <Link to="/createRecipe"
+                          className={`nav-link ${parts[1] === 'createRecipe' ? 'active' : ''}`}>
+                        Create Recipe
+                    </Link>
+                </li>
+                <li className={`nav-item ${!currentUser ? 'd-none' : ''}`}>
                     <Link to="/users"
                         className={`nav-link ${parts[1] === 'users' ? 'active' : ''}`}>
                         Creators

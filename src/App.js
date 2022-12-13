@@ -25,6 +25,7 @@ import reviewsReducer from './reviews/reviews-reducer';
 import rapidAPIReducer from "./rapidAPI/rapidAPI-reducer";
 import rapidAPIRecipeInformReducer from "./rapidAPI/rapidAPI-recipeInform-reducer";
 import EditProfileComponent from './users/edit-profile/EditProfileComponent';
+import CreateNewRecipeComponent from "./createNewRecipe";
 
 //configurestore
 const store = configureStore({
@@ -58,6 +59,11 @@ function App() {
           <Route path="/users" element={
             <ProtectedRoute>
               <UsersComponent />
+            </ProtectedRoute>
+          } />
+          <Route path="/createRecipe" element={
+            <ProtectedRoute>
+              <CreateNewRecipeComponent />
             </ProtectedRoute>
           } />
           <Route path="/login" element={<LoginComponent />} />
