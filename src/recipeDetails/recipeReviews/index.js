@@ -32,7 +32,7 @@ const RecipeReviewsComponent = () => {
     return(
         <>
             <div className="row">
-                <h4>Reviews</h4>
+                <h5 className="text-success">Reviews</h5>
                 <div className="row">
                 {
                     currentUser &&

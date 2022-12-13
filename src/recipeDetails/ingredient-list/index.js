@@ -31,14 +31,14 @@ const IngredientList = () => {
         getRecipe();
     },[])
 
-    console.log(chosenRecipe)
-    console.log(chosenRecipe)
-    console.log(Object.keys(chosenRecipe).length)
+    // console.log(chosenRecipe)
+    // console.log(chosenRecipe)
+    //console.log(Object.keys(chosenRecipe).length)
     if(Object.keys(chosenRecipe).length >0){
         return(
 
             <div>
-                <h4>ingredient</h4>
+                <h5 className="text-success">ingredient</h5>
 
                 <ul className="list-group list-group-horizontal">
                     <div className="row row-cols-2">

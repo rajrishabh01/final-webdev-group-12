@@ -23,43 +23,45 @@ const ResultItem = (
         dispatch(findRecipeInformationByRecipeIDThunk(searchTerm))
     },[])
     return(
-        <div className="list-group-item m-3">
-            <div className="card text-center" style={{width: 315}}>
-                <div className="card-img" style={{width: 288}}>
+        <div className="list-group-item m-3 border-0 bg-transparent">
+            <div className="card img-fluid text-center border border-success border-3" style={{width: 315}}>
+                <div className="card-img" style={{width: 288}} >
                     <img src={result.image} alt={result.image}/>
                 </div>
-                <div className="card-body">
-                    <div className = "row">
-                        <h1 className="card-title text-success">
-                            <button className="btn btn-link btn-lg text-decoration-none text-center font-monospace " onClick={(e) =>{
-                                let recipeID = result.id
-                                window.location.href="/recipeDetails/" + recipeID
-                                setSearchTerm(recipeID)
-                                dispatch(findRecipeInformationByRecipeIDThunk(searchTerm.trim()))
-                                //findRecipeDetails(result.id)
-                                // console.log(result.id);
-                            }}>{result.title} </button>
-                        </h1>
-                    </div>
-                    <div className = "row">
-                        <h6>
-                            {result.likes} likes
-                            <i className="bi bi-fire text-danger"></i>
-                        </h6>
-                    </div>
-                    <br/>
-                    <br/>
-                    <div className="row">
-                        <a>How many your ingredients?
-                        <span className="fw-bolder text-info"> {result.usedIngredientCount}</span>
-                        </a>
-                    </div>
-                    <div className="row">
-                        <a>
-                        How many missed ingredients?
-                        <span className="fw-bolder text-info"> {result.missedIngredientCount} </span>
-                        </a>
+                <div >
+                    <div className="card-body">
+                        <div className = "row">
+                            <a className="card-title text-success">
+                                <button className="btn btn-link btn-lg
+                                text-decoration-none  text-success " onClick={(e) =>{
+                                    let recipeID = result.id
+                                    window.location.href="/recipeDetails/" + recipeID
+                                    setSearchTerm(recipeID)
+                                    dispatch(findRecipeInformationByRecipeIDThunk(searchTerm.trim()))
+                                    //findRecipeDetails(result.id)
+                                    // console.log(result.id);
+                                }}>{result.title} </button>
+                            </a>
+                        </div>
+                        <div className = "row">
+                            <h6>
+                                {result.likes} likes
+                                <i className="bi bi-fire text-danger"></i>
+                            </h6>
+                        </div>
+                        <br/>
+                        <div className="row">
+                            <a>How many your ingredients?
+                            <span className="fw-bolder text-info"> {result.usedIngredientCount}</span>
+                            </a>
+                        </div>
+                        <div className="row">
+                            <a>
+                            How many missed ingredients?
+                            <span className="fw-bolder text-info"> {result.missedIngredientCount} </span>
+                            </a>
 
+                        </div>
                     </div>
                 </div>
             </div>
