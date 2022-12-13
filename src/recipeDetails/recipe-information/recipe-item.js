@@ -88,17 +88,17 @@ const RecipeInformation = ({recipe, author}) => {
                     </div>
                 </div>
                 <br />
-                <div className="row">
-                    <div className="col-9">
-                        <textarea className="form-control rounded-4" placeholder="Share more about your experience. Any tips for improving this recipe?"
-                        ></textarea>
-                    </div>
-                    <div className="col">
-                        <button className="btn btn-success rounded-pill"><i
-                            className="bi bi-plus-circle"></i> </button>
-                    </div>
-                </div>
-
+                {/*<div className="row">*/}
+                {/*    <div className="col-9">*/}
+                {/*        <textarea className="form-control rounded-4" placeholder="Share more about your experience. Any tips for improving this recipe?"*/}
+                {/*        ></textarea>*/}
+                {/*    </div>*/}
+                {/*    <div className="col">*/}
+                {/*        <button className="btn btn-success rounded-pill"><i*/}
+                {/*            className="bi bi-plus-circle"></i> </button>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+            {/**/}
             </div>
 
         </div>
