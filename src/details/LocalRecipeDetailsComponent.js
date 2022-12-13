@@ -11,12 +11,7 @@ import RecipeSummary from "../recipeDetails/summary/summaryItem";
 import IngredientItem from "../recipeDetails/ingredient-list/ingredient-item";
 
 const style ={
-    // 'border-radius': '50px',
-    // 'background': '#573d3d',
-    //  'box-shadow':  '20px 20px 60px #4a3434, -20px -20px 60px #644646'
-    'borderRadius': '34px',
-    'background': 'linear-gradient(315deg, #d0ffd0, #afe6af)',
-    'boxShadow':  '-30px -30px 59px #8eba8e, 30px 30px 59px #f6fff6'
+    'background': 'linear-gradient(rgba(184, 231, 154, 0.9),rgba(255, 255, 255, 0.1)'
 
 }
 

@@ -34,7 +34,7 @@ const RecipeSummaryComponent = () => {
         return (
             <>
                 <div className="row">
-                    <h4>Instructions</h4>
+                    <h5 className="text-success">Instructions</h5>
                     <div>
                         {
                             <RecipeSummary key={chosenRecipe.id} recipe={chosenRecipe}/>

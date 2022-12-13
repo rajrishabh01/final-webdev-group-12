@@ -9,7 +9,7 @@ const RecipeSummary = (
     console.log(recipe.instructions)
     let array = "";
     if(typeof recipe.instructions === "string"){
-        array = recipe.instructions.trim().replace(/: /g, ":\n").replace(/\. /g,".\n")
+        array = recipe.instructions
     }
     return (
         <div id="test" style={{whiteSpace:'pre-wrap'}}>
