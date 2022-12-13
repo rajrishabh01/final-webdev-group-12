@@ -7,8 +7,6 @@ import { loginThunk } from "../users-thunk";
 import { unwrapResult } from "@reduxjs/toolkit";
 import "./index.css"
 
-
-
 const LoginComponent = () => {
     const [username, setUsername] = useState('username')
     const [password, setPassword] = useState('password')
