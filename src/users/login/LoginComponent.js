@@ -7,19 +7,6 @@ import { loginThunk } from "../users-thunk";
 import { unwrapResult } from "@reduxjs/toolkit";
 import "./index.css"
 
-const style ={
-    'borderRadius': '16px',
-    // 'background': '#b0cbf7',
-    // 'boxShadow': 'inset 5px 5px 10px #465163, inset -5px -5px 10px #ffffff',
-    'position': 'absolute',
-    'top':'auto',
-    'left': '0',
-    'right': '0',
-    'bottom': 'auto',
-    'margin': 'auto'
-}
-
-
 const LoginComponent = () => {
     const [username, setUsername] = useState('username')
     const [password, setPassword] = useState('password')
