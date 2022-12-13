@@ -10,7 +10,7 @@ const CreateRecipesComponent = () => {
     const { currentUser } = useSelector((state) => state.users)
     const { recipes } = useSelector((state) => state.recipes)
     const [recipe, setRecipe] = useState({ title: 'New Recipe' })
-    const uid = currentUser._id
+    const uid = currentUser && currentUser._id
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllRecipesThunk())
@@ -24,21 +24,23 @@ const CreateRecipesComponent = () => {
                 <h2>Welcome {currentUser.username} </h2>
             }
             <ul className="list-group">
-                <li className="list-group-item">
-                    <button className="btn btn-success float-end" onClick={() => {
-                        dispatch(createRecipesThunk(
-                            {
-                                title: recipe.title,
-                                author: currentUser._id
-                            }
-                        ))
-                    }}>Create</button>
-                    <input
-                        className="form-control w-75"
-                        onChange={(e) =>
-                            setRecipe({ ...recipe, title: e.target.value })}
-                        value={recipe.title} />
-                </li>
+                {currentUser &&
+                    <li className="list-group-item">
+                        <button className="btn btn-success float-end" onClick={() => {
+                            dispatch(createRecipesThunk(
+                                {
+                                    title: recipe.title,
+                                    author: currentUser._id
+                                }
+                            ))
+                        }}>Create</button>
+                        <input
+                            className="form-control w-75"
+                            onChange={(e) =>
+                                setRecipe({ ...recipe, title: e.target.value })}
+                            value={recipe.title} />
+                    </li>
+                }
                 {
                     recipes.map((recipe) =>
                         <li className="list-group-item"

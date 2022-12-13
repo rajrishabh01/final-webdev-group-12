@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router";
 import { loginThunk } from "../users-thunk";
-import {unwrapResult} from "@reduxjs/toolkit";
+import { unwrapResult } from "@reduxjs/toolkit";
+import "./index.css"
 
 const style ={
     'borderRadius': '16px',
@@ -20,8 +21,8 @@ const style ={
 
 
 const LoginComponent = () => {
-    const [username, setUsername] = useState('dan')
-    const [password, setPassword] = useState('dan123')
+    const [username, setUsername] = useState('username')
+    const [password, setPassword] = useState('password')
     const [localError, setLocalError] = useState(null)
     const { currentUser } = useSelector((state) => state.users)
     const dispatch = useDispatch()
@@ -41,46 +42,30 @@ const LoginComponent = () => {
     }
     return (
         <>
-            <h1>Login</h1>
-            <div className="row m-5 bg-info text-center">
-                    <div className="border text-md-center w-25 " style={style}>
-
+            <div className="wd-container-login">
+                <div className="col-6 wd-login-box pt-1 ps-4 pe-4 pb-2">
+                    <h1 className="col-6 d-flex justify-content-center">Login</h1>
                     {
                         localError &&
                         <div className="alert alert-danger">
                             {localError}
                         </div>
                     }
-                    <label htmlFor="inputForUserName"
-                           className="form-label">
-                        Username:
-                    </label>
                     <input
-                        className="form-control mb-2"
-                        id = "inputForUserName"
-                        value={username}
+                        className="form-control wd-fc mb-2 ps-4"
+                        placeholder={username}
                         onChange={(e) => setUsername(e.target.value)} />
-                    <label htmlFor="inputForPassword"
-                           className="form-label">
-                        Password:
-                    </label>
                     <input
-                        className="form-control mb-2"
-                        id="inputForPassword"
-                        value={password}
+                        className="form-control wd-fc mb-2 ps-4"
+                        placeholder={password}
+                        type="password"
                         onChange={(e) => setPassword(e.target.value)} />
                     <button
                         onClick={handleLoginBtn}
-                        className="btn btn-primary w-100">
-                        Login
+                        className="wd-btn w-100">
+                        Continue
                     </button>
-                    {
-                        currentUser &&
-                        <h2>Welcome {currentUser.username}</h2>
-                    }
-
                 </div>
-
             </div>
         </>
     )
