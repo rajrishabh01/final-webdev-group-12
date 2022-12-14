@@ -7,11 +7,12 @@ import {Link} from "react-router-dom";
 const CreateNewRecipeComponent = () => {
     const {currentUser} = useSelector((state) => state.users);
     const uid = currentUser && currentUser._id;
+    const userType = currentUser.type;
     let [recipe, setRecipe] = useState({title: ''});
     const dispatch = useDispatch();
     const createRecipeClickHandler = () => {
         const categories = getCheckedCategories("category");
-        const newRecipe = {
+        let newRecipe = {
             title: recipe.title,
             likes: 0,
             liked: false,
@@ -34,6 +35,15 @@ const CreateNewRecipeComponent = () => {
             calories: recipe.calories,
             preparation_time: recipe.preparation_time
         }
+
+        if (userType === "PRO") {
+            newRecipe = {
+                ...newRecipe,
+                promotions: recipe.promotions,
+                pro_address: recipe.pro_address
+            }
+        }
+
         dispatch(createRecipesThunk(newRecipe));
         alert("Recipe created!");
     }
@@ -144,6 +154,30 @@ const CreateNewRecipeComponent = () => {
                        onChange={(event) => setRecipe(
                            {...recipe, recipe_image: event.target.value})}
                 />
+
+                <div className={`
+                ${userType === "PRO" ? '' : 'd-none'}
+                `}>
+                <label htmlFor="promotions" className="text-success">Promotions</label>
+                <textarea value={recipe.promotions}
+                          id="promotions"
+                          className="form-control w-25 mb-2"
+                          onChange={(event) => setRecipe(
+                              {...recipe, promotions: event.target.value})}
+                />
+                </div>
+
+                <div className={`
+                ${userType === "PRO" ? '' : 'd-none'}
+                `}>
+                    <label htmlFor="pro_address" className="text-success">Restaurant Location</label>
+                    <input value={recipe.pro_address}
+                           id="pro_address"
+                           className="form-control w-25 mb-2"
+                           onChange={(event) => setRecipe(
+                               {...recipe, pro_address: event.target.value})}
+                    />
+                </div>
 
 
                 <Link to={`/home`}
