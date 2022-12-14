@@ -56,7 +56,7 @@ const PublicProfileComponent = () => {
                 <div className="row wd-user-row mt-4">
                     <div className="col-4 ms-2 wd-pic-section pb-2">
                         {
-                            currentUser && publicProfile &&
+                            publicProfile &&
                             <div className="col-7 d-inline">
                                 <div className="d-flex wd-name-follow mt-3 fw-bolder">{publicProfile.firstName} {publicProfile.lastName}
                                 {
