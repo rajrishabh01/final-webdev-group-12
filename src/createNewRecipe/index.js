@@ -24,7 +24,7 @@ const CreateNewRecipeComponent = () => {
             summary: recipe.summary,
             author: uid,
             dateCreated: Date.now(),
-            ingredients: [],
+            ingredients: recipe.ingredients,
             reviews: [],
             categories: categories,
             recipe_instructions: recipe.recipe_instructions,
@@ -36,6 +36,7 @@ const CreateNewRecipeComponent = () => {
         }
         dispatch(createRecipesThunk(newRecipe));
     }
+
     return (
         <div className="ps-4 pb-4 wd-create-bg align-content-center">
             <h3 className="pt-1 pb-2 text-success">Let's whip something up!</h3>
@@ -84,7 +85,16 @@ const CreateNewRecipeComponent = () => {
             <textarea value={recipe.ingredients} placeholder="Ingredients"
                       id="ingredients"
                       className="form-control w-25 mb-2"
-                      onChange={(event) => setRecipe({...recipe, ingredients: event.target.value})}
+                      onChange={(event) => {
+                          let ingredientStr;
+                          ingredientStr = event.target.value;
+                          let ingredientArray;
+                          ingredientArray = ingredientStr.split(",");
+                          setRecipe({...recipe, ingredients:ingredientArray})
+
+                      }
+
+                          }
             />
 
             <label htmlFor="recipeInstructions" className="text-success">Instructions</label>

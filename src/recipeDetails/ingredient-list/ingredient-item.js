@@ -17,15 +17,29 @@ const IngredientItem = (
     }
 ) => {
     let showImage;
+    let name;
+    let amount;
+    let unit;
     //console.log(typeof(eachIngredient.image))
-    if(typeof eachIngredient.image === "string"){
-        if (eachIngredient.image.length<30) {
-            showImage = imageUrl + eachIngredient.image
+    if(typeof eachIngredient === "string"){
+        showImage = imageUrl + eachIngredient + ".jpg"
+        name = eachIngredient
+
+    }
+    if(typeof eachIngredient === "object"){
+        if(typeof eachIngredient.image === "string"){
+            if (eachIngredient.image.length<30) {
+                showImage = imageUrl + eachIngredient.image
+            }
         }
+        else{
+            showImage = eachIngredient.image
+        }
+        name = eachIngredient.name
+        amount = eachIngredient.amount
+        unit = eachIngredient.unit
     }
-    else{
-        showImage = eachIngredient.image
-    }
+
 
 
     //console.log(eachIngredient.image.length)
@@ -38,8 +52,8 @@ const IngredientItem = (
                     <li className = "list-group-item border border-0 bg-transparent">
                     <span>
                         <img src={showImage} className = "" width= "15%" alt={showImage}/> <span className='fw-bolder'>
-                        {eachIngredient.amount} {eachIngredient.unit} </span>
-                        {eachIngredient.name}
+                        {amount} {unit} </span>
+                        {name}
                     </span>
                     </li>
                 </div>
