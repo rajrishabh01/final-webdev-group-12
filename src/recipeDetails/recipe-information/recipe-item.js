@@ -3,12 +3,24 @@ import { Link } from "react-router-dom";
 
 const RecipeInformation = ({recipe, author}) => {
     console.log(author)
-    
+    console.log(recipe.isApiCreated)
+    let prepareTime = ""
+    let image =""
+
+    if(!recipe.isApiCreated ){
+       prepareTime = recipe.preparation_time
+        image = recipe.recipe_image
+    }
+    if(typeof recipe.readyInMinutes === "number"){
+        prepareTime = recipe.readyInMinutes
+        image = recipe.image
+    }
+
     return (
 
         <div className="row">
             <div className="col-4">
-                <img src={recipe.image} width="100%" className="rounded-5" alt="yum yum..." />
+                <img src={image} width="100%" className="rounded-5" alt="yum yum..." />
             </div>
             <div className="col-8">
                 <div className="row">
@@ -46,7 +58,7 @@ const RecipeInformation = ({recipe, author}) => {
                 </div>
                 <div className="row">
                     <h6 className="text-secondary">
-                        preparing time: {recipe.readyInMinutes} mins
+                        preparing time: {prepareTime} mins
                     </h6>
                 </div>
                 <br />
@@ -88,17 +100,6 @@ const RecipeInformation = ({recipe, author}) => {
                     </div>
                 </div>
                 <br />
-                {/*<div className="row">*/}
-                {/*    <div className="col-9">*/}
-                {/*        <textarea className="form-control rounded-4" placeholder="Share more about your experience. Any tips for improving this recipe?"*/}
-                {/*        ></textarea>*/}
-                {/*    </div>*/}
-                {/*    <div className="col">*/}
-                {/*        <button className="btn btn-success rounded-pill"><i*/}
-                {/*            className="bi bi-plus-circle"></i> </button>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-            {/**/}
             </div>
 
         </div>

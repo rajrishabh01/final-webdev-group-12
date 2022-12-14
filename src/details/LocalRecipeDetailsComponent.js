@@ -8,7 +8,6 @@ import RecipeInformation from "../recipeDetails/recipe-information/recipe-item";
 import { findReviewsByRecipeThunk, createReviewThunk } from "../reviews/reviews-thunk";
 import ReviewItem from "../recipeDetails/recipeReviews/review-items";
 import RecipeSummary from "../recipeDetails/summary/summaryItem";
-import IngredientItem from "../recipeDetails/ingredient-list/ingredient-item";
 
 const style ={
     'background': 'linear-gradient(rgba(184, 231, 154, 0.9),rgba(255, 255, 255, 0.1)'
@@ -45,19 +44,22 @@ const LocalRecipeDetailsComponent = () => {
                 <div className="row m-4">
                     {localRecipe && <RecipeInformation recipe={localRecipe} author={localRecipe.author} />}
                 </div>
-                {/*<div className="row m-4">*/}
-                {/*    /!*ingredient list*!/*/}
-                {/*    {localRecipe &&*/}
-                {/*     localRecipe.ingredients.map(*/}
-                {/*         ingredient => <IngredientItem key = {ingredient.id}/>*/}
-                {/*     )*/}
-                {/*    }*/}
-                {/*</div>*/}
-                {/*<div className="row m-4">*/}
-                {/*    /!*recipeSummary*!/*/}
-                {/*    {localRecipe && <RecipeSummary recipe={localRecipe}/>}*/}
+                <div className="row m-4">
+                    <h5 className="text-success"> Ingredients</h5>
+                    {/*{console.log(localRecipe.ingredients)}*/}
+                    {/*ingredient list*/}
+                    {/*{localRecipe &&*/}
+                    {/* localRecipe.ingredients.map(*/}
+                    {/*     ingredient => <IngredientItem key = {ingredient.id}/>*/}
+                    {/* )*/}
+                    {/*}*/}
+                </div>
+                <div className="row m-4">
+                    <h5 className="text-success"> Instructions</h5>
+                    {/*recipeSummary*/}
+                    {localRecipe && <RecipeSummary recipe={localRecipe}/>}
 
-                {/*</div>*/}
+                </div>
                 <div className="row m-4">
                     {
                         currentUser &&

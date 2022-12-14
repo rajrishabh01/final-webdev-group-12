@@ -6,11 +6,17 @@ const RecipeSummary = (
         }
     }
 ) =>{
+   console.log(recipe.isApiCreated)
     console.log(recipe.instructions)
     let array = "";
-    if(typeof recipe.instructions === "string"){
-        array = recipe.instructions
-    }
+   if(!recipe.isApiCreated){
+       array = recipe.recipe_instructions
+   }
+
+   if (typeof recipe.instructions === "string") {
+       array = recipe.instructions
+   }
+
     return (
         <div id="test" style={{whiteSpace:'pre-wrap'}}>
             <p className="lead fw-normal">
