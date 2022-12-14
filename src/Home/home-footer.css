@@ -1,0 +1,29 @@
+.socials {
+    background-color: #343A40;
+    padding: 2.5% 4%;
+}
+
+.social-icon {
+    margin: 20px 20px auto;
+    color: azure;
+    font-size: 1.8rem;
+}
+
+.social-icon :hover {
+    color: mediumseagreen;
+}
+
+.footer-quote {
+    color: azure;
+    margin-top: 1.5%;
+    font-size: 1.3rem;
+}
+
+.footer-quote-writer {
+    margin: auto 20% auto 20%;
+}
+
+.socials {
+    text-align: center;
+
+}

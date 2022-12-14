@@ -3,3 +3,35 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.wd-recipe-list {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    font-size: 2.7rem;
+    color: #195f80;
+    text-align: center;
+}
+
+.wd-create-recipe-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    font-size: 2.7rem;
+    color: #195f80;
+    text-align: center;
+}
+
+.card-pro {
+    background-color: lightgreen;
+}
+
+.create-recipe-section {
+    text-align: center;
+}
+
+.wd-btn-create {
+    font-size: 2rem;
+}

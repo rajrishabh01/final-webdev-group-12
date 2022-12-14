@@ -1,3 +1,11 @@
 .wd-home-bg {
     background: linear-gradient(rgba(184, 231, 154, 0.9), rgba(255, 255, 255, 0.1))
 }
+
+.wd-welcome-msg {
+    font-family: 'Caveat', cursive;
+    font-weight: bold;
+    font-size: 4.8rem;
+    color: #195f80;
+    text-align: center;
+}

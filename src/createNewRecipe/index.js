@@ -35,6 +35,7 @@ const CreateNewRecipeComponent = () => {
             preparation_time: recipe.preparation_time
         }
         dispatch(createRecipesThunk(newRecipe));
+        alert("Recipe created!");
     }
 
     return (
