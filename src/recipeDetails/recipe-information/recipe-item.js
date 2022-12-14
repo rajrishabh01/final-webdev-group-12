@@ -7,17 +7,17 @@ const RecipeInformation = ({recipe, author}) => {
     console.log(recipe.isApiCreated)
     let prepareTime = ""
     let image =""
-    let summary =""
+
 
     if(!recipe.isApiCreated ){
        prepareTime = recipe.preparation_time
         image = recipe.recipe_image
-        summary = recipe.summary
+
     }
     if(typeof recipe.readyInMinutes === "number"){
         prepareTime = recipe.readyInMinutes
         image = recipe.image
-        summary = ""
+
     }
 
     return (
@@ -104,13 +104,13 @@ const RecipeInformation = ({recipe, author}) => {
                     </div>
                 </div>
                 <br />
-                <div className="row ri_summary_border" style={{whiteSpace:'initial'}} >
-                    <h5 className="text-success">Summary: </h5>
-                    <p className="text-capitalize">
-                        {summary}
-                    </p>
+                {/*<div className="row ri_summary_border" style={{whiteSpace:'initial'}} >*/}
+                {/*    <h5 className="text-success">Summary: </h5>*/}
+                {/*    <p className="text-capitalize">*/}
+                {/*        {summary}*/}
+                {/*    </p>*/}
 
-                </div>
+                {/*</div>*/}
             </div>
 
         </div>
