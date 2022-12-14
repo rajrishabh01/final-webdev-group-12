@@ -9,6 +9,7 @@ import { findReviewsByAuthorThunk } from "../../reviews/reviews-thunk";
 import { findRecipeByUserIdThunk } from "../../recipe/recipe-thunks";
 import regularPic from '../../pics/regular.png'
 import proPic from '../../pics/procreator.png'
+import adminPic from '../../pics/admin.png'
 import { findAllUsersThunk } from "../users-thunk";
 import { findRecipesLikedByUserThunk } from "../../likes/likes-thunks";
 import "./index.css"
@@ -37,8 +38,16 @@ const ProfileComponent = () => {
         dispatch(findRecipesLikedByUserThunk(uid))
     }, [currentUser])
 
-    const userPic = currentUser && currentUser.type === 'REGULAR' ? regularPic : proPic;
-    const userType = currentUser && currentUser.type === 'REGULAR' ? 'Casual Creator' : 'Pro Creator'
+    let userPic;
+    let userType;
+    if (currentUser && currentUser.type !== 'ADMIN') {
+        userPic = currentUser && currentUser.type === 'REGULAR' ? regularPic : proPic;
+        userType = currentUser && currentUser.type === 'REGULAR' ? 'Casual Creator' : 'Pro Creator'
+    } else if ((currentUser && currentUser.type === 'ADMIN')) {
+        userPic = adminPic
+        userType = 'Administrator'
+    }
+
     return (
         <>
             <div className="wd-container-profile pt-2">
@@ -51,7 +60,7 @@ const ProfileComponent = () => {
                                 <div className="wd-image mt-2">
                                     <img src={userPic} className="rounded-circle" />
                                 </div>
-                                <span className="d-flex justify-content-center fw-bold text-success mb-5"> {userType} </span>
+                                <span className="d-flex justify-content-center fw-bold text-success mb-4"> {userType} </span>
                                 <div className="wd-userinfo mb-2 ms-2">
                                     <div className="text-secondary">Username : <span className="text-success">{currentUser.username}</span> </div>
                                     <div className="text-secondary">Handle : <span className="text-success">{currentUser.handle}</span> </div>
