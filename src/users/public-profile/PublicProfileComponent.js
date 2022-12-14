@@ -11,6 +11,7 @@ import { findRecipeByUserIdThunk } from "../../recipe/recipe-thunks";
 import regularPic from '../../pics/regular.png'
 import proPic from '../../pics/procreator.png'
 import { findRecipesLikedByUserThunk } from "../../likes/likes-thunks";
+import adminPic from '../../pics/admin.png'
 
 const PublicProfileComponent = () => {
     const { uid } = useParams()
@@ -38,8 +39,15 @@ const PublicProfileComponent = () => {
         dispatch(findRecipesLikedByUserThunk(uid))
     }, [uid, followers])
 
-    const userPic = publicProfile && publicProfile.type === 'REGULAR' ? regularPic : proPic;
-    const userType = publicProfile && publicProfile.type === 'REGULAR' ? 'Casual Creator' : 'Pro Creator'
+    let userPic;
+    let userType;
+    if (publicProfile && publicProfile.type !== 'ADMIN') {
+        userPic = publicProfile && publicProfile.type === 'REGULAR' ? regularPic : proPic;
+        userType = publicProfile && publicProfile.type === 'REGULAR' ? 'Casual Creator' : 'Pro Creator'
+    } else if ((publicProfile && publicProfile.type === 'ADMIN')) {
+        userPic = adminPic
+        userType = 'Administrator'
+    }
 
     return (
         <>
@@ -55,7 +63,7 @@ const PublicProfileComponent = () => {
                                     followers && currentUser && !followers.find((user) => user._id !== currentUser._id) &&
                                     <button
                                         onClick={() => { handleFollowBtn() }}
-                                        className="btn btn-success wd-follow">
+                                        className="btn btn-success wd-follow rounded-pill">
                                         Follow
                                     </button>
                                 }
