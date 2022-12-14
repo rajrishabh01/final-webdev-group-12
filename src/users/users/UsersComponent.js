@@ -19,7 +19,7 @@ const UsersComponent = () => {
             <div className="wd-container-userslist">
                 <div className="row wd-userheading">
                     <div className="col-12 wd-userheadingcol mt-4 mb-4">
-                        <div className="wd-userheadingtext fw-bold">Find your fellow <span className="text-success">Creators</span> and follow them!</div>
+                        <div className="wd-userheadingtext fw-bold">Find your fellow <span className="wd-text-creators">Creators</span> and follow them!</div>
                     </div>
                 </div>
                 <div className="row wd-userlist">
@@ -40,7 +40,7 @@ const UsersComponent = () => {
                                                          <i onClick={() => {
                                                              dispatch(deleteUserThunk(user._id))
                                                          }}
-                                                            className="bi bi-trash float-end card-link"></i>}
+                                                            className="bi bi-trash float-end card-link text-danger"></i>}
                                         </div>
                                     </div>
                                 )
