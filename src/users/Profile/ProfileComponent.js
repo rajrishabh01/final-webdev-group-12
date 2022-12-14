@@ -121,7 +121,7 @@ const ProfileComponent = () => {
                         </div>}
 
                         <div className="list-group">
-                            <h2>Liked Recipes</h2>
+                            <h2>Bookmarked Recipes</h2>
                             {
                                 likes && likes.map((like) =>
                                     like && like.recipe && like.recipe.title &&
