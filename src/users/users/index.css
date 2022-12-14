@@ -2,10 +2,9 @@
     height:auto;
     width:auto;
     background: linear-gradient(
-        rgba(184, 231, 154, 0.9),
-        rgba(255, 255, 255, 0.1)
+        rgba(44, 233, 10, 0.8),
+        rgba(255, 255, 255, 0.6)
     );
-   height:90vh;
 }
 
 .wd-userlist {
@@ -19,8 +18,12 @@
 }
 
 .wd-userheadingtext {
-    color: limegreen;
+    color: rgb(21, 119, 10);
     font-size: 48px;
+}
+
+.wd-text-creators{
+    color: white;
 }
 
 .wd-userheadingcol {
@@ -35,8 +38,8 @@
 .wd-userlist .list-group-item {
     display: flex;
     align-items: center;
-    border: 1px solid green;
-    margin-bottom:3px;
+    border: 2px solid green;
+    margin-bottom:px;
     
 }
 
@@ -64,16 +67,19 @@
 .wd-userlist .list-group-item .wd-text-REGULAR a:hover {
     text-decoration: none;
     color: green;
+    font-weight: bold;
 }
 
 .wd-userlist .list-group-item .wd-text-ADMIN a:hover {
     text-decoration: none;
     color: green;
+    font-weight: bold;
 }
 
 .wd-userlist .list-group-item .wd-text-PRO a:hover {
     text-decoration: none;
     color: green;
+    font-weight: bold;
 }
 
 .wd-usertype-text-ADMIN {

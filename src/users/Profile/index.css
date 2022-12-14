@@ -2,9 +2,13 @@
     height:auto;
     width:auto;
     background: linear-gradient(
-        rgba(184, 231, 154, 0.9),
-        rgba(255, 255, 255, 0.1)
-    );
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.9)
+    ),
+    url(/src/pics/loginbg.jpg);
+    background-size: cover;
+    background-position: center;
+    
 }
 
 .wd-image {
