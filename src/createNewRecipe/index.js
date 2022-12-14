@@ -67,6 +67,7 @@ const CreateNewRecipeComponent = () => {
                 <option value="INDIAN">Indian</option>
                 <option value="THAI">Thai</option>
                 <option value="FRENCH">French</option>
+                <option value="ITALIAN">Italian</option>
             </select>
 
             <div className='mb-2'>
