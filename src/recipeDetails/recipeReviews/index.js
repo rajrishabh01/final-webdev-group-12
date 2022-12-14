@@ -39,8 +39,8 @@ const RecipeReviewsComponent = () => {
                     <div>
                         <textarea
                             onChange={(e) => setReview(e.target.value)}
-                            className="form-control"></textarea>
-                        <button onClick={handlePostReviewBtn}>Post Review</button>
+                            className="form-control w-25"></textarea>
+                        <button className="btn btn-success rounded-pill mt-2" onClick={handlePostReviewBtn}>Post Review</button>
                     </div>
                 }
             </div>

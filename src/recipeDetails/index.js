@@ -18,17 +18,19 @@ const RecipeDetailsComponent = () => {
                 <div className="row">
                     <h1 className="text-white">Recipe Details</h1>
                 </div>
-                <div className="row m-4">
-                    <RecipeComponent/>
-                </div><br/>
-                <div className = "row m-4" >
-                    <IngredientList/>
-                </div><br/>
-                <div className="row m-4">
-                    <RecipeSummaryComponent/>
-                </div><br/>
-                <div className="row m-4">
-                    <RecipeReviewsComponent/>
+                <div className="m-4">
+                    <div className="row m-4">
+                        <RecipeComponent/>
+                    </div><br/>
+                    <div className = "row m-4" >
+                        <IngredientList/>
+                    </div><br/>
+                    <div className="row m-4">
+                        <RecipeSummaryComponent/>
+                    </div><br/>
+                    <div className="row m-4">
+                        <RecipeReviewsComponent/>
+                    </div>
                 </div>
             </div>
 
