@@ -39,114 +39,123 @@ const CreateNewRecipeComponent = () => {
     }
 
     return (
-        <div className="ps-4 pb-4 wd-create-bg align-content-center">
-            <h3 className="pt-1 pb-2 text-success">Let's whip something up!</h3>
+        <div>
+            <div className="pb-4 wd-create-recipe position-relative">
+                <h3 className="pt-1 pb-2 text-success wd-create-recipe-title">Let's whip something
+                    up!</h3>
 
-            <label htmlFor="recipeTitle" className="text-success"> Recipe Title</label>
-            <input value={recipe.title} placeholder="Recipe Title"
-                   id="recipeTitle"
-                   className="form-control w-25 mb-2"
-                   onChange={(event) => setRecipe({...recipe, title: event.target.value})}
-            />
+                <img src='../images/create-recipe.jpeg'
+                     className='float-end position-absolute wd-create-recipe-image'/>
 
-            <label htmlFor="recipeSummary" className="text-success">Summary</label>
-            <textarea value={recipe.summary} placeholder="Summary"
-                      id="recipeSummary"
-                      className="form-control w-25 mb-2"
-                      onChange={(event) => setRecipe({...recipe, summary: event.target.value})}
-            />
+                <label htmlFor="recipeTitle" className="text-success"> Recipe Title</label>
+                <input value={recipe.title}
+                       id="recipeTitle"
+                       className="form-control w-25 mb-2"
+                       onChange={(event) => setRecipe({...recipe, title: event.target.value})}
+                />
 
-            <label htmlFor="recipeCuisine" className="text-success"> Cuisine</label>
-            <select value={recipe.cuisine} placeholder="Cuisine"
-                    id="recipeCuisine"
-                    className="form-control w-25 mb-2"
-                    onChange={(event) => setRecipe({...recipe, cuisine: event.target.value})}>
-                <option value="MEXICAN">Mexican</option>
-                <option value="CHINESE">Chinese</option>
-                <option value="AMERICAN">American</option>
-                <option value="INDIAN">Indian</option>
-                <option value="THAI">Thai</option>
-                <option value="FRENCH">French</option>
-                <option value="ITALIAN">Italian</option>
-            </select>
+                <label htmlFor="recipeSummary" className="text-success">Summary</label>
+                <textarea value={recipe.summary}
+                          id="recipeSummary"
+                          className="form-control w-25 mb-2 wd-more-padding"
+                          onChange={(event) => setRecipe({...recipe, summary: event.target.value})}
+                />
 
-            <div className='mb-2'>
+                <label htmlFor="recipeCuisine" className="text-success"> Cuisine</label>
+                <select value={recipe.cuisine}
+                        id="recipeCuisine"
+                        className="form-control w-25 mb-2"
+                        onChange={(event) => setRecipe({...recipe, cuisine: event.target.value})}>
+                    <option value="MEXICAN">Mexican</option>
+                    <option value="CHINESE">Chinese</option>
+                    <option value="AMERICAN">American</option>
+                    <option value="INDIAN">Indian</option>
+                    <option value="THAI">Thai</option>
+                    <option value="FRENCH">French</option>
+                    <option value="ITALIAN">Italian</option>
+                </select>
+
                 <label htmlFor="categories" className="text-success">Categories</label><br/>
-                <input className="me-2" type="checkbox" name="category" value="Vegan"/>Vegan<br/>
-                <input className="me-2" type="checkbox" name="category" value="Vegetarian"/>Vegetarian<br/>
-                <input className="me-2" type="checkbox" name="category" value="GlutenFree"/>Gluten
-                free<br/>
-                <input className="me-2" type="checkbox" name="category" value="DairyFree"/>Dairy
-                Free<br/>
-                <input className="me-2" type="checkbox" name="category" value="VeryHealthy"/>Very
-                healthy<br/>
-                <input className="me-2" type="checkbox" name="category" value="Sustainable"/>Sustainable<br/>
-            </div>
+                <div className='mb-2 wd-category'>
+                    <input className="me-2" type="checkbox" name="category"
+                           value="Vegan"/>Vegan<br/>
+                    <input className="me-2" type="checkbox" name="category" value="Vegetarian"/>Vegetarian<br/>
+                    <input className="me-2" type="checkbox" name="category" value="GlutenFree"/>Gluten
+                    free<br/>
+                    <input className="me-2" type="checkbox" name="category" value="DairyFree"/>Dairy
+                    Free<br/>
+                    <input className="me-2" type="checkbox" name="category" value="VeryHealthy"/>Very
+                    healthy<br/>
+                    <input className="me-2" type="checkbox" name="category" value="Sustainable"/>Sustainable<br/>
+                </div>
 
-            <label htmlFor="ingredients" className="text-success">Ingredients</label>
-            <textarea value={recipe.ingredients} placeholder="Ingredients"
-                      id="ingredients"
-                      className="form-control w-25 mb-2"
-                      onChange={(event) => {
-                          let ingredientStr;
-                          ingredientStr = event.target.value;
-                          let ingredientArray;
-                          ingredientArray = ingredientStr.split(",");
-                          setRecipe({...recipe, ingredients:ingredientArray})
-
-                      }
+                <label htmlFor="ingredients" className="text-success">Ingredients</label>
+                <textarea value={recipe.ingredients}
+                          id="ingredients"
+                          className="form-control w-25 mb-2"
+                          onChange={(event) => {
+                              let ingredientStr;
+                              ingredientStr = event.target.value;
+                              let ingredientArray;
+                              ingredientArray = ingredientStr.split(",");
+                              setRecipe({...recipe, ingredients: ingredientArray})
 
                           }
-            />
 
-            <label htmlFor="recipeInstructions" className="text-success">Instructions</label>
-            <textarea value={recipe.recipe_instructions} placeholder="Instructions"
-                      id="recipeInstructions"
-                      className="form-control w-25 mb-2"
-                      onChange={(event) => setRecipe(
-                          {...recipe, recipe_instructions: event.target.value})}
-            />
+                          }
+                />
 
-            <label htmlFor="cost" className="text-success">Cost Per Serving ($)</label>
-            <input value={recipe.cost_per_serving} placeholder="Cost Per Serving"
-                   id="cost"
-                   className="form-control w-25 mb-2"
-                   onChange={(event) => setRecipe(
-                       {...recipe, cost_per_serving: event.target.value})}
-            />
+                <label htmlFor="recipeInstructions" className="text-success">Instructions</label>
+                <textarea value={recipe.recipe_instructions}
+                          id="recipeInstructions"
+                          className="form-control w-25 mb-2"
+                          onChange={(event) => setRecipe(
+                              {...recipe, recipe_instructions: event.target.value})}
+                />
 
-            <label htmlFor="calories" className="text-success">Calories (kCal)</label>
-            <input value={recipe.calories} placeholder="Calories"
-                   id="calories"
-                   className="form-control w-25 mb-2"
-                   onChange={(event) => setRecipe({...recipe, calories: event.target.value})}
-            />
+                <label htmlFor="cost" className="text-success">Cost Per Serving ($)</label>
+                <input value={recipe.cost_per_serving}
+                       id="cost"
+                       className="form-control w-25 mb-2"
+                       onChange={(event) => setRecipe(
+                           {...recipe, cost_per_serving: event.target.value})}
+                />
 
-            <label htmlFor="prepTime" className="text-success">Preparation Time (minutes)</label>
-            <input value={recipe.preparation_time} placeholder="Preparation Time"
-                   id="prepTime"
-                   className="form-control w-25 mb-2"
-                   onChange={(event) => setRecipe(
-                       {...recipe, preparation_time: event.target.value})}
-            />
+                <label htmlFor="calories" className="text-success">Calories (kCal)</label>
+                <input value={recipe.calories}
+                       id="calories"
+                       className="form-control w-25 mb-2"
+                       onChange={(event) => setRecipe({...recipe, calories: event.target.value})}
+                />
 
-            <label htmlFor="image" className="text-success">Recipe Image</label>
-            <input type="file" value={recipe.recipe_image} placeholder="Recipe Image"
-                   id="image"
-                   className="form-control w-25 mb-2"
-                   onChange={(event) => setRecipe({...recipe, recipe_image: event.target.value})}
-            />
+                <label htmlFor="prepTime" className="text-success">Preparation Time
+                    (minutes)</label>
+                <input value={recipe.preparation_time}
+                       id="prepTime"
+                       className="form-control w-25 mb-2"
+                       onChange={(event) => setRecipe(
+                           {...recipe, preparation_time: event.target.value})}
+                />
+
+                <label htmlFor="image" className="text-success">Recipe Image</label>
+                <input type="file" value={recipe.recipe_image}
+                       id="image"
+                       className="form-control w-25 mb-2"
+                       onChange={(event) => setRecipe(
+                           {...recipe, recipe_image: event.target.value})}
+                />
 
 
-            <Link to={`/home`}
-                  className="link-success text-decoration-none">
-                <button
-                    className="rounded-pill btn btn-success mt-2 ps-3 pe-3 fw-bold"
-                    onClick={createRecipeClickHandler}>
-                    Create Recipe
-                </button>
-            </Link>
+                <Link to={`/home`}
+                      className="link-success text-decoration-none">
+                    <button
+                        className="rounded-pill btn btn-success mt-2 ps-3 pe-3 fw-bold"
+                        onClick={createRecipeClickHandler}>
+                        Create Recipe
+                    </button>
+                </Link>
 
+            </div>
         </div>
     )
 }
