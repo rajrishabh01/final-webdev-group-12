@@ -6,7 +6,7 @@ import {findRecipesByIngredientsThunk} from "../rapidAPI/rapidAPI-thunks";
 
 const SearchBar = () => {
     //let [responseData, setResponseData] = React.useState('')
-    let [searchTerm,setSearchTerm] = useState('apples,flour,sugar')
+    let [searchTerm,setSearchTerm] = useState('egg,tomato,beef')
     const {resultList, loading} = useSelector((state)=>state.rapid)
 
     const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const SearchBar = () => {
     console.log(resultList)
     return (
         <div className="row">
-            <h3 className="text-center" >
+            <h3 className="text-center text-success" >
                 It's time for cooking! What do you have in the fridge?
             </h3>
             <br/>

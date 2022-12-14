@@ -3,6 +3,7 @@
 import React, {useEffect, useState} from "react"
 import {useDispatch, useSelector} from "react-redux";
 import {findRecipeInformationByRecipeIDThunk} from "../rapidAPI/rapidAPI-thunks";
+import "./search-result.css"
 
 const ResultItem = (
     {
@@ -24,7 +25,7 @@ const ResultItem = (
     },[])
     return(
         <div className="list-group-item m-3 border-0 bg-transparent">
-            <div className="card img-fluid text-center border border-success border-3" style={{width: 315}}>
+            <div className="card img-fluid text-center border border-success border-3 h-100 sr_card" style={{width: 318}}>
                 <div className="card-img" style={{width: 288}} >
                     <img src={result.image} alt={result.image}/>
                 </div>

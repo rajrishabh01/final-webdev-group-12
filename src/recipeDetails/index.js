@@ -13,7 +13,7 @@ const RecipeDetailsComponent = () => {
     const { currentUser } = useSelector((state) => state.users)
     console.log(currentUser)
     return(
-        <div className="border border-secondary border-opacity-25" style={style}>
+        <div className="m-lg-5 border border-secondary border-opacity-25" style={style}>
             <div className="m-5">
                 <div className="row">
                     <h1 className="text-white">Recipe Details</h1>
