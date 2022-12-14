@@ -45,7 +45,7 @@ const LocalRecipeDetailsComponent = () => {
     return (
         <>
             <div className="m-lg-5 border border-secondary border-opacity-25" style={style}>
-
+                <div className = "m-4">
                 <div className="row m-4">
                     {localRecipe && <RecipeInformation recipe={localRecipe} author={localRecipe.author} />}
                 </div>
@@ -76,7 +76,9 @@ const LocalRecipeDetailsComponent = () => {
                                         <span className="text-danger fw-bolder">Calories: </span><span>{localRecipe && localRecipe.calories}</span>
                                     </li>
                                     <li className="list-group-item">
-                                        <span className="text-danger fw-bolder">Cost: </span><span>{localRecipe && localRecipe.cost_per_serving}</span>
+                                        <span className="text-danger fw-bolder">Cost:
+                                        </span><span><i
+                                        className="bi bi-currency-dollar"></i>{localRecipe && localRecipe.cost_per_serving}</span>
                                     </li>
                                     <li className="list-group-item">
                                         <span className="text-danger fw-bolder">Cuisine: </span><span>{localRecipe && localRecipe.cuisine}</span>
@@ -89,6 +91,7 @@ const LocalRecipeDetailsComponent = () => {
                         </div>
 
                     </div>
+
 
 
 
@@ -115,15 +118,17 @@ const LocalRecipeDetailsComponent = () => {
                         </div>
                     }
                 </div>
-                <div className="row">
-
-                    {reviews &&
-                        reviews.map((eachReview) =>
-                            <ReviewItem
-                                key={eachReview._id}
-                                reviews={eachReview} />
-                        )
-                    }
+                <div className="row m-4">
+                    <ul className="list-group">
+                        {reviews &&
+                            reviews.map((eachReview) =>
+                                <ReviewItem
+                                    key={eachReview._id}
+                                    reviews={eachReview} />
+                            )
+                        }
+                    </ul>
+                </div>
                 </div>
             </div>
 

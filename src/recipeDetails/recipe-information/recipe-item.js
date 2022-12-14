@@ -17,7 +17,7 @@ const RecipeInformation = ({recipe, author}) => {
     if(typeof recipe.readyInMinutes === "number"){
         prepareTime = recipe.readyInMinutes
         image = recipe.image
-        summary = recipe.instructions
+        summary = ""
     }
 
     return (

@@ -1,0 +1,55 @@
+
+
+.sc_card-wrap {
+    position: relative;
+    width:75%;
+    margin-left: 150px;
+    background-color: #89b984;
+}
+.sc_card-list {
+    display: flex;
+    padding: 30px 0 30px 30px;
+    flex-direction: column;
+    height: 330px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.sc_card-list:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 30px;
+    height: 300px;
+    width: 5px;
+    border-radius: 5px;
+    background: linear-gradient( 130deg, #d30004, #c99a00 41.07%, #0f7100 76.05%);
+    box-shadow: -10px 0 20px 3px #04ff50;
+}
+
+.sc_card-item {
+    box-sizing: border-box;
+    width: 230px;
+    height: 300px;
+    transition: all .2s;/* 使用过渡动画 0.2秒内完成 */
+    padding: 15px;
+    border-radius: 16px;
+    background: linear-gradient( 85deg, #3c7544, #262626);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -20px 0 30px -20px #aacca8;
+}
+
+.sc_card-item:not(:first-child) {
+    margin-left: -120px;
+}
+
+.sc_card-item:hover {
+    transform: translate(-0.5rem, -1rem) rotate( 3deg);
+}
+
+.sc_card-item:hover~.card-item {
+    transform: translateX(120px);
+}
