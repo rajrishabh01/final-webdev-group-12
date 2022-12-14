@@ -1,0 +1,95 @@
+.wd-container-userslist {
+    height:auto;
+    width:auto;
+    background: linear-gradient(
+        rgba(184, 231, 154, 0.9),
+        rgba(255, 255, 255, 0.1)
+    );
+   height:90vh;
+}
+
+.wd-userlist {
+    display: flex;
+    justify-content: center;
+}
+
+.wd-userheading {
+    display: flex;
+    color:limegreen;
+}
+
+.wd-userheadingtext {
+    color: limegreen;
+    font-size: 48px;
+}
+
+.wd-userheadingcol {
+    display: flex;
+    justify-content: space-around;
+}
+
+.wd-userlist .list-group {
+    background-color: none;
+}
+
+.wd-userlist .list-group-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid green;
+    margin-bottom:3px;
+    
+}
+
+.wd-userlist .list-group-item .wd-text-REGULAR a {
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: limegreen;
+}
+
+.wd-userlist .list-group-item .wd-text-ADMIN a {
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: limegreen;
+}
+
+.wd-userlist .list-group-item .wd-text-PRO a {
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: limegreen;
+}
+
+.wd-userlist .list-group-item .wd-text-REGULAR a:hover {
+    text-decoration: none;
+    color: green;
+}
+
+.wd-userlist .list-group-item .wd-text-ADMIN a:hover {
+    text-decoration: none;
+    color: green;
+}
+
+.wd-userlist .list-group-item .wd-text-PRO a:hover {
+    text-decoration: none;
+    color: green;
+}
+
+.wd-usertype-text-ADMIN {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(242, 1, 126);
+}
+
+.wd-usertype-text-REGULAR {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(16, 119, 245);
+}
+
+.wd-usertype-text-PRO {
+    display: flex;
+    justify-content: space-between;
+    color: orange;
+}
