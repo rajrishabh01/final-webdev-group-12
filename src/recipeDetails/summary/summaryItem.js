@@ -18,7 +18,7 @@ const RecipeSummary = (
    }
 
     return (
-        <div id="test" style={{whiteSpace:'pre-wrap'}}>
+        <div id="test" style={{whiteSpace:'pre-line'}}>
             <p className="lead fw-normal">
                 {array}
                 {/*{recipe.instructions}*/}

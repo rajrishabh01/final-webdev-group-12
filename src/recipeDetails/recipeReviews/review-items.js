@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import regularPic from "../../pics/regular.png"
 import proPic from '../../pics/procreator.png'
+import "./recipe-review.css"
 
 
 const ReviewItem = ({reviews}) => {
     let authorAvatoar=''
     let authorType =''
-    if(reviews.author.type != null){
+    if(typeof reviews.author.type === 'string'){
          authorAvatoar = reviews.author.type ==='REGULAR'? proPic : regularPic;
          authorType = reviews.author.type === ' REGULAR'? 'casual creator' : 'pro creator'
     }
@@ -16,7 +17,7 @@ const ReviewItem = ({reviews}) => {
         <>
         { reviews &&
         <div>
-            <div className="list-group-item border border-1 border-success">
+            <div className="list-group-item rv_border">
                 <div className="row">
                     <div className="col-1">
                         <img src={authorAvatoar} className="rounded-circle" width="100%" height="70px" alt='Avatoar'/>
